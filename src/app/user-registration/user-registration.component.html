@@ -4,14 +4,17 @@
 </div>
 <div style="text-align: center">
     <form>
-        <label>Email: <input class="formInputs" type="text" name="email"/></label><br>
-        <label>Full Name: <input class="formInputs" type="text" name="fullName"/></label><br>
-        <label>Username: <input class="formInputs" type="text" name="username"/></label><br>
-        <label>Password: <input class="formInputs" type="password" name="password"/></label><br>
-        <button class="formInputs">Sign up</button>
+        <p class="error">{{fieldErrorMessage}}</p>
+        <label>Email: <input #emailAddress class="formInputs" type="email" name="emailAddress"/></label><br>
+        <label>Full Name: <input #fullName class="formInputs" type="text" name="fullName"/></label><br>
+        <label>Username: <input #username class="formInputs" type="text" name="username"/></label><br>
+        <label>Password: <input #password class="formInputs" type="password" name="password"/></label><br>
+        <label>Confirm Password: <input #verifyPassword class="formInputs" type="password" name="verifyPassword"/></label>
+        <p class="error">{{passwordErrorMessage}}</p><br>
+        <button (click)='validateInput(emailAddress.value, fullName.value, username.value, password.value, verifyPassword.value)' class="formInputs">Sign up</button>
     </form>
 </div> 
 <div style="text-align: center">
-    <p>Have an account? Log in</p>
+    <p>Have an account? <a routerLink="/log-in">Log in</a></p>
 </div>
 

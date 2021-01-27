@@ -15,3 +15,7 @@ div {
   #instructions {
       font-size: large;
   }
+
+  .error {
+    color: red;
+  }
