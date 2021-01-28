@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-registration',
@@ -6,25 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-  fieldErrorMessage = "";
-  passwordErrorMessage = "";
-
-  constructor() { }
+  
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    ) { }
+    
+    registerForm: FormGroup;
+    loading = false;
+    submitted = false;
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      email: ['', [Validators.required,Validators.email]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+      });
   }
+  
+  get fval() { return this.registerForm.controls; }
 
-  validateInput (email: string, fullName: string, username: string, password: string, verifyPassword: string) {
-    if (email == '' || fullName == '' || username == '' || password == '' || verifyPassword == ''){
-      this.fieldErrorMessage = "ALL FIELDS REQUIRED!";
-    } else {
-      this.fieldErrorMessage = "";
+  onFormSubmit(){
+    this.submitted = true;
+    // return for here if form is invalid
+    if (this.registerForm.invalid) {
+    return;
     }
-    if (password != verifyPassword){
-      this.passwordErrorMessage = "PASSWORDS MUST MATCH!";
-    } else {
-      this.passwordErrorMessage = "";
-    }
+    this.loading = true;
   }
-
 }
