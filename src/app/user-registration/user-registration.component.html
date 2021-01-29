@@ -1,0 +1,66 @@
+<div>
+    <h2>Startland Student Portal</h2>
+    <p id="instructions">Sign up to access classroom content.</p>
+</div>
+
+<form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+
+    <div class="form-group">
+        <label for="email">Email: 
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email here"/>
+        </label>
+        <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+            <div *ngIf="fval.email.errors.required">Email is required</div>
+            <div *ngIf="fval.email.errors.email">Enter valid email address</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="firstName">First Name: 
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.firstName.errors }" placeholder="Enter First Name here"/>
+        </label>
+        <div *ngIf="submitted && fval.firstName.errors" class="invalid-feedback">
+            <div *ngIf="fval.firstName.errors.required">First Name is required</div>
+        </div>
+    </div>
+ 
+    <div class="form-group">
+        <label for="lastName">Last Name: 
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.lastName.errors }" placeholder="Enter Last Name here"/>
+        </label>
+        <div *ngIf="submitted && fval.LASTName.errors" class="invalid-feedback">
+            <div *ngIf="fval.lastName.errors.required">Last Name is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="username">Username: 
+            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.username.errors }" placeholder="Enter Username here"/>
+        </label>
+        <div *ngIf="submitted && fval.username.errors" class="invalid-feedback">
+            <div *ngIf="fval.username.errors.required">Username is required</div>
+        </div>
+    </div>
+ 
+    <div class="form-group">
+        <label for="password">Password: 
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter Password here"/>
+        </label>
+        <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+            <div *ngIf="fval.password.errors.required">Password is required</div>
+            <div *ngIf="fval.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+ 
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Sign up
+        </button>
+    </div>
+</form>
+
+<div>
+    <p>Have an account? <a routerLink="/log-in" class="btn btn-link">Log in</a></p>
+</div>
+

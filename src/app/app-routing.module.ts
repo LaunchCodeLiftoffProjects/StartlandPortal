@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 const routes: Routes = [
-  
+  { path: 'user-registration', component: UserRegistrationComponent }
 ];
 
 @NgModule({
