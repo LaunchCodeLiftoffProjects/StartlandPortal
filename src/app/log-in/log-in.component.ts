@@ -1,6 +1,9 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-log-in',
@@ -9,20 +12,25 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent implements OnInit {
 
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
+    private authenticationService: AuthenticationService,
+    private toastr: ToastrService
     ) { }
 
-    loginForm: FormGroup;
-    loading = false;
-    submitted = false;
-
+    
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required,Validators.email]],
       // TODO: check password against database password.
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required]]
       });
   }
 
@@ -35,7 +43,15 @@ export class LogInComponent implements OnInit {
     return;
     }
     this.loading = true;
-    // should this route to the home page upon login?
+    this.authenticationService.login(this.fval.email.value, this.fval.password.value)
+      .subscribe(
+        data => {
+          this.router.navigate(['/home']);
+        },
+    error => {
+      this.toastr.error(error.error.message, 'Error');
+      this.loading = false;
+    });
   }
 
 }

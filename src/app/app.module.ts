@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
