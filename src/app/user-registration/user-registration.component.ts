@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-user-registration',
@@ -13,6 +14,7 @@ export class UserRegistrationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private userService: UserService,
     private toastr: ToastrService
     ) { }
     
@@ -39,5 +41,15 @@ export class UserRegistrationComponent implements OnInit {
     return;
     }
     this.loading = true;
+    this.userService.register(this.registerForm.value).subscribe(
+      (data)=>{
+      alert('User Registered successfully!!');
+      this.router.navigate(['/log-in']);
+      },
+      (error)=>{
+      this.toastr.error(error.error.message, 'Error');
+      this.loading = false;
+      }
+      )
   }
 }
