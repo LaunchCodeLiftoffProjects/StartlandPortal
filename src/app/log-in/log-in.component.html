@@ -3,13 +3,23 @@
         <img class="login-logo" src="assets/images/SLO-horz-cyan_SLO-horz-cyan.png">
     </div>
     <div class="login-form">
-        <form>
+        <form [formGroup]="login-form" ngSubmit="onFormSubmit()">
             <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" placeholder="email"><br>
+            <input type="email" id="email" name="email" placeholder="Email"><br>
+            <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                <span *ngIf="fval.email.errors.required">Email is required</span>
+                <!-- would span or div work better for this error message?  -->
+                <div *ngIf="fval.email.errors.email">Enter valid email address</div>
+            </div>
+
             <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="password"><br>
+            <input type="password" id="password" name="password" placeholder="Password"><br>
+            <div *ngIf="submitted && fval.passowrd.errors" class="invalid-feedback">
+                <span *ngIf="fval.password.errors.required">Email is required</span>
+            </div>
+
             <button name="button" type="submit" class="submit-button">LOGIN</button>
-            <a href="/register" class="register">Register</a>
+            <a href="/user-registration"class="register">Register</a>
         </form>
     </div>
 </div>
