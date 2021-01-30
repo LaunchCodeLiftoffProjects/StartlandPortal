@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from './_models/user';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  currentUser: User;
   
   constructor(
     private router: Router,

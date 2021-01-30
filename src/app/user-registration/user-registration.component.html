@@ -28,7 +28,7 @@
         <label for="lastName">Last Name: 
             <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.lastName.errors }" placeholder="Enter Last Name here"/>
         </label>
-        <div *ngIf="submitted && fval.LASTName.errors" class="invalid-feedback">
+        <div *ngIf="submitted && fval.lastName.errors" class="invalid-feedback">
             <div *ngIf="fval.lastName.errors.required">Last Name is required</div>
         </div>
     </div>
@@ -63,4 +63,3 @@
 <div>
     <p>Have an account? <a routerLink="/log-in" class="btn btn-link">Log in</a></p>
 </div>
-
