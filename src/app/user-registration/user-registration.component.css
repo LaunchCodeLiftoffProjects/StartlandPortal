@@ -1,0 +1,86 @@
+.form-section{
+    margin: auto;
+    border: 3px solid  white;
+    background-color: #1c355e;
+    width: 560px;
+}
+
+.logo {
+    width: 60%;
+    height: 60%;
+    display:block;
+    margin:auto;
+    padding: 5px;
+}
+
+.instructions {
+    position: absolute;
+    top: 35%;
+    left: 43%;
+}
+
+h2 , p{
+    color: white;
+    text-align: center;
+}
+
+.input-section {
+    margin: auto;
+    border: 3px solid  white;
+    background-color: #0f9fce;
+    width: 560px;
+}
+
+input {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 0 auto;
+    display: block;
+    text-align: left;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  label {
+      color:#ffbf3c;
+      padding: 12%;
+  }
+
+  span {
+      color: red;
+      padding: 12%;
+  }
+
+  .submit-button {
+    background-color: #ffbf3c;
+    color:  #1c355e;
+    padding: 14px 20px;
+    margin: 8px 140px;
+    border: 1px solid #ffbf3c;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+    color: #ffbf3c;
+    background-color:  #1c355e;
+    border: 1px solid #1c355e;
+  }
+
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #ffbf3c;
+    background-color: transparent;
+    text-decoration: underline;
+  }
