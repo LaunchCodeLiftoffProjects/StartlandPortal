@@ -4,7 +4,7 @@
 </div>
 
 <div class="input-section">
-    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" action="/user-registration" method="POST">
 
         <div class="form-group">
             <label for="email">Email:</label><br>
@@ -49,7 +49,7 @@
         </div>
     
         <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary" class="submit-button">
+            <button [disabled]="loading" class="btn btn-primary" class="submit-button" type="submit">
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Sign up
             </button>
