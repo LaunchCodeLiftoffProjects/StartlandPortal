@@ -4,11 +4,11 @@
 </div>
 
 <div class="input-section">
-    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" action="/user-registration" method="POST">
+    <form [formGroup]="registerForm" (submit)="register()">
 
         <div class="form-group">
             <label for="email">Email:</label><br>
-                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Email"/><br>
+                <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" [(ngModel)]="credentials.email" placeholder="Email"/><br>
             <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
                 <span *ngIf="fval.email.errors.required">Email is required</span>
                 <span *ngIf="fval.email.errors.email">Enter valid email address</span>
@@ -16,32 +16,16 @@
         </div>
 
         <div class="form-group">
-            <label for="firstName">First Name:</label><br>
-                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.firstName.errors }" placeholder="First Name"/><br>
-            <div *ngIf="submitted && fval.firstName.errors" class="invalid-feedback">
-                <span *ngIf="fval.firstName.errors.required">First Name is required</span>
-            </div>
-        </div>
-    
-        <div class="form-group">
-            <label for="lastName">Last Name:</label><br>
-                <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.lastName.errors }" placeholder="Last Name"/><br>
-            <div *ngIf="submitted && fval.lastName.errors" class="invalid-feedback">
-                <span *ngIf="fval.lastName.errors.required">Last Name is required</span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="username">Username:</label><br>
-                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.username.errors }" placeholder="Username"/><br>
-            <div *ngIf="submitted && fval.username.errors" class="invalid-feedback">
-                <span *ngIf="fval.username.errors.required">Username is required</span>
+            <label for="fullName">Full Name:</label><br>
+                <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.fullName.errors }" [(ngModel)]="credentials.name" placeholder="Full Name"/><br>
+            <div *ngIf="submitted && fval.fullName.errors" class="invalid-feedback">
+                <span *ngIf="fval.fullName.errors.required">Full Name is required</span>
             </div>
         </div>
     
         <div class="form-group">
             <label for="password">Password:</label><br>
-                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Password"/><br>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" [(ngModel)]="credentials.password" placeholder="Password"/><br>
             <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
                 <span *ngIf="fval.password.errors.required">Password is required</span>
                 <span *ngIf="fval.password.errors.minlength">Password must be at least 6 characters</span>
@@ -49,7 +33,7 @@
         </div>
     
         <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary" class="submit-button" type="submit">
+            <button [disabled]="loading" class="btn btn-default" class="submit-button" type="submit">
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Sign up
             </button>
@@ -59,6 +43,6 @@
 
 <div class="form-section">
     <div>
-        <p>Have an account? <a class="login" routerLink="/log-in" class="btn btn-link">Log in</a></p>
+        <p>Have an account? <a href="/log-in">Log in</a></p>
     </div>
 </div>

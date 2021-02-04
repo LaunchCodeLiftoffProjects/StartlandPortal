@@ -1,10 +1,18 @@
-<div class="jumbotron">
-    <a *ngIf="currentUser" class="nav-item nav-link" style="cursor:pointer" (click)="logout()">Logout</a>
-    <div class="container">
-    <div class="row">
-    <div class="col-md-4 offset-md-4">
-    <router-outlet></router-outlet>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="#announcements">Announcements</a>
+    <a href="#modules">Modules</a>
+    <a href="#Forums">Forums</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <div class="navbar-right">
+        <span *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></span>
+        <span *ngIf="auth.isLoggedIn()"><a routerLink="/home">{{ auth.getUserDetails()?.name }}</a></span>
+        <span *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></span>
     </div>
-    </div>
-    </div>
-    </div>
+  </div>
+  
+<router-outlet></router-outlet>

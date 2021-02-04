@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { InterceptorService } from './_services/interceptor.service';
 import { UserService } from './_services/user.service';
+import { AuthenticationService } from './_services/authentication.service';
+import { AuthGuard } from './_helpers/auth.guard';
 
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
@@ -28,7 +30,12 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [UserService,{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }], //
+  providers: [
+    UserService,
+    AuthenticationService,
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ], //
 bootstrap: [AppComponent]
 })
 export class AppModule { }

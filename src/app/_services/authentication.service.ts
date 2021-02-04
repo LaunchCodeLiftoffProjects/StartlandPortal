@@ -1,41 +1,106 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
- 
+import { Router } from '@angular/router'; 
+
 import { User } from '../_models/user';
+
+export interface UserDetails {
+  _id: string;
+  email: string;
+  fullName: string;
+  exp: number;
+  iat: number;
+}
+
+interface TokenResponse {
+  token: string;
+}
+
+export interface TokenPayload {
+  email: string;
+  password: string;
+  fullName?: string;
+}
  
-@Injectable({ providedIn: 'root' })
+@Injectable()
 
 export class AuthenticationService {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
- 
-  constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
+  private token: string;
+
+  constructor(private http: HttpClient, private router: Router) {
 }
  
-public get currentUserValue(): User {
-  return this.currentUserSubject.value;
+private saveToken(token: string): void {
+  localStorage.setItem('mean-token', token);
+  this.token = token;
 }
- 
-login(email: string, password: string) {
-  return this.http.post<any>(`auth/log-in`, { email, password })
-    .pipe(map(user => {
-      if (user && user.token) {
-// store user details in local storage to keep user logged in
-        localStorage.setItem('currentUser', JSON.stringify(user.result));
-        this.currentUserSubject.next(user);
+
+private getToken(): string {
+  if (!this.token) {
+    this.token = localStorage.getItem('mean-token');
+  }
+  return this.token;
+}
+
+public getUserDetails(): UserDetails {
+  const token = this.getToken();
+  let payload;
+  if (token) {
+    payload = token.split('.')[1];
+    payload = window.atob(payload);
+    return JSON.parse(payload);
+  } else {
+    return null;
+  }
+}
+
+public isLoggedIn(): boolean {
+  const user = this.getUserDetails();
+  if (user) {
+    return user.exp > Date.now() / 1000;
+  } else {
+    return false;
+  }
+}
+
+private request(method: 'post'|'get', type: 'log-in'|'user-registration'|'home', user?: TokenPayload): Observable<any> {
+  let base;
+
+  if (method === 'post') {
+    base = this.http.post(`/api/${type}`, user);
+  } else {
+    base = this.http.get(`/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+  }
+
+  const request = base.pipe(
+    map((data: TokenResponse) => {
+      if (data.token) {
+        this.saveToken(data.token);
       }
- 
-      return user;
-    }));
+      return data;
+    })
+  );
+
+  return request;
 }
- 
-logout() {
-// remove user data from local storage for log out
-  localStorage.removeItem('currentUser');
-  this.currentUserSubject.next(null);
+
+public register(user: TokenPayload): Observable<any> {
+  return this.request('post', 'user-registration', user);
+}
+
+public login(user: TokenPayload): Observable<any> {
+  return this.request('post', 'log-in', user);
+}
+
+public home(): Observable<any> {
+  return this.request('get', 'home');
+}
+
+public logout(): void {
+  this.token = '';
+  window.localStorage.removeItem('mean-token');
+  this.router.navigateByUrl('/');
 }
 }

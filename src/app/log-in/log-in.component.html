@@ -3,10 +3,10 @@
         <img class="login-logo" src="assets/images/SLO-horz-cyan_SLO-horz-cyan.png">
     </div>
     <div class="login-form">
-        <form [formGroup]="login-form" (ngSubmit)="onFormSubmit()">
+        <form [formGroup]="login-form" (submit)="login()">
             <div class="form-group">
                 <label for="email">Email:</label><br>
-                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Email"><br>
+                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" [(ngModel)]="credentials.email" placeholder="Email"><br>
                 <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
                     <span *ngIf="fval.email.errors.required">Email is required</span>
                     <span *ngIf="fval.email.errors.email">Enter valid email address</span>
@@ -14,13 +14,13 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label><br>
-                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Password"><br>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" [(ngModel)]="credentials.password" placeholder="Password"><br>
                 <div *ngIf="submitted && fval.passowrd.errors" class="invalid-feedback">
                     <span *ngIf="fval.password.errors.required">Email is required</span>
                 </div>
             </div>
             <div class="form-group">
-                <button [disabled]="loading" name="button" type="submit" class="submit-button">LOGIN</button>
+                <button name="button" type="submit" class="submit-button">LOGIN</button>
             </div>
             <a href="/user-registration"class="register">Register</a>
         </form>
