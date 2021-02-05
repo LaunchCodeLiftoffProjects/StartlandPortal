@@ -3,7 +3,7 @@
         <img class="login-logo" src="assets/images/SLO-horz-cyan_SLO-horz-cyan.png">
     </div>
     <div class="login-form">
-        <form [formGroup]="login-form" (submit)="login()">
+        <form [formGroup]="loginForm" (submit)="login()">
             <div class="form-group">
                 <label for="email">Email:</label><br>
                 <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" [(ngModel)]="credentials.email" placeholder="Email"><br>
@@ -15,8 +15,8 @@
             <div class="form-group">
                 <label for="password">Password:</label><br>
                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" [(ngModel)]="credentials.password" placeholder="Password"><br>
-                <div *ngIf="submitted && fval.passowrd.errors" class="invalid-feedback">
-                    <span *ngIf="fval.password.errors.required">Email is required</span>
+                <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+                    <span *ngIf="fval.password.errors.required">Password is required</span>
                 </div>
             </div>
             <div class="form-group">

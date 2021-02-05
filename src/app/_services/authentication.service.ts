@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router'; 
 
-import { User } from '../_models/user';
-
 export interface UserDetails {
   _id: string;
   email: string;
