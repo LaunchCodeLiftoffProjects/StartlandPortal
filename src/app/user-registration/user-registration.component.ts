@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../_services/authentication.service';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-user-registration',
@@ -10,17 +10,16 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-  
+  form: any = {};
+  registerForm: FormGroup;
+  loading = false;
+  submitted = false;
+
   constructor(
+    private authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private router: Router,
-    private userService: UserService,
     private toastr: ToastrService
     ) { }
-    
-    registerForm: FormGroup;
-    loading = false;
-    submitted = false;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -35,21 +34,21 @@ export class UserRegistrationComponent implements OnInit {
   get fval() { return this.registerForm.controls; }
 
   onFormSubmit(){
+    console.log(this.form);
     this.submitted = true;
     // return for here if form is invalid
     if (this.registerForm.invalid) {
     return;
     }
     this.loading = true;
-    this.userService.register(this.registerForm.value).subscribe(
-      (data)=>{
-      alert('User Registered successfully!!');
-      this.router.navigate(['/log-in']);
+    this.authService.register(this.form).subscribe(
+      data => {
+        console.log(data);
       },
-      (error)=>{
-      this.toastr.error(error.error.message, 'Error');
-      this.loading = false;
+      err => {
+        this.toastr.error(err.error.message, 'Error');
+        this.loading = false;
       }
-      )
+    );
   }
 }

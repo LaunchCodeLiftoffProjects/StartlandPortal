@@ -1,41 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
- 
-import { User } from '../_models/user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const AUTH_API = 'http://localhost:8080/api/auth/';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
  
 @Injectable({ providedIn: 'root' })
 
 export class AuthenticationService {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
- 
-  constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
-}
- 
-public get currentUserValue(): User {
-  return this.currentUserSubject.value;
-}
- 
-login(email: string, password: string) {
-  return this.http.post<any>(`auth/log-in`, { email, password })
-    .pipe(map(user => {
-      if (user && user.token) {
-// store user details in local storage to keep user logged in
-        localStorage.setItem('currentUser', JSON.stringify(user.result));
-        this.currentUserSubject.next(user);
-      }
- 
-      return user;
-    }));
-}
- 
-logout() {
-// remove user data from local storage for log out
-  localStorage.removeItem('currentUser');
-  this.currentUserSubject.next(null);
-}
+  
+  constructor(private http: HttpClient) { }
+
+  login(credentials): Observable<any> {
+    return this.http.post(AUTH_API + 'signin', {
+      username: credentials.username,
+      password: credentials.password
+    }, httpOptions);
+  }
+
+  register(user): Observable<any> {
+    console.log(user.email);
+    return this.http.post(AUTH_API + 'signup', {
+      email: user.email,
+      firstName: user.firstname,
+      lastname: user.lastname,
+      username: user.username,
+      password: user.password
+    }, httpOptions);
+  }
+
 }

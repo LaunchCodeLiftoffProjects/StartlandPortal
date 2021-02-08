@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../_services/token-storage.service';
+import { UserService } from '../_services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,15 +10,25 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public currentUser;
+  currentUser: any;
+  content: string;
 
   constructor(
+    private token: TokenStorageService,
+    private userService: UserService,
     private router: Router,
-  ) {
-    this.currentUser = localStorage.getItem('currentUser')? JSON.parse(localStorage.getItem('currentUser')) : '';
-   }
+  ) { }
 
   ngOnInit() {
-  }
+    this.currentUser = this.token.getUser;
 
+    this.userService.getPublicContent().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
+  }
 }

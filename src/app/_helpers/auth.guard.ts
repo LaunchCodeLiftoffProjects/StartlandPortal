@@ -1,27 +1,27 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthenticationService } from '../_services/authentication.service';
+import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { TokenStorageService } from '../_services/token-storage.service';
 
-export class AuthGuard implements CanActivate {
-  constructor(
-  private router: Router,
-  private authenticationService: AuthenticationService
-  ) {}
+const TOKEN_HEADER_KEY = 'Authorization';
+
+@Injectable()
+
+export class AuthGuard implements HttpInterceptor {
+  
+  constructor(private token: TokenStorageService) { }
    
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-  const currentUser = this.authenticationService.currentUserValue;
-  if (currentUser) {
-  // authorised so return true
-  return true;
-  }
-   
-  // not logged in so redirect to login page
-  this.router.navigate(['/log-in'], { queryParams: { returnUrl: state.url }});
-  return false;
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    let authReq = req;
+    const token = this.token.getToken();
+    if (token != null) {
+      authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
+    }
+    return next.handle(authReq);
   }
 }
+
+export const authInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: AuthGuard, multi: true }
+];
