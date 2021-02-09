@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { YouTubePlayerModule } from "@angular/youtube-player";
 
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
@@ -32,7 +33,8 @@ import { Module5Component } from './module5/module5.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
