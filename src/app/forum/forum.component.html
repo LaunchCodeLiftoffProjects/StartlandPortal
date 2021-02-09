@@ -1,1 +1,199 @@
-<p>forum works!</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" type="text/css" href="forum/forum.component.css">-->
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Startland Education Portal</title>
+    </head>
+
+
+
+    <body>
+
+    <!-- Start of Forum Structure layout-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 paginationBar forumModule forumMargin">
+                    <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 1</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 2</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 3</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 4</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 5</a>
+                </div>
+            </div>
+
+            <div id="module1" class="row forumModule forumMargin">
+                <!--<a href="#" onclick="showDiscussions(1);">-->
+                    <div class="col-lg-12 columnPad">
+                        <div class="pullLeft">
+                            <h1>Module 1: NAME</h1> 
+                        </div>
+                        <div class="pullRight">
+                            <a class="btn btn-primary themeButton" href="#">Start Discussion</a>
+                        </div>
+                    </div>
+                <!--</a>-->
+            </div>
+
+            <div id="moduleDiscussions1" class="row forumPad" style="display:block;">
+                <table class="forumTable">
+                    <thead>
+                        <th>
+                            Discussion
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th class="pullRight">
+                            Replies
+                        </th>
+                    </thead>
+
+                    <tr class="forumModule">
+                        <td>
+                            <a href="#">Discussion name here</a>
+                        </td>
+                        <td>
+                            <a href="#">User</a>
+                        </td>
+                        <td class="pullRight">
+                            15
+                        </td>
+                    </tr>
+                    <tr class="forumModule">
+                        <td>
+                            <a href="#">Discussion name here</a>
+                        </td>
+                        <td>
+                            <a href="#">User</a>
+                        </td>
+                        <td class="pullRight">
+                            15
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+            <div id="module2" class="row forumModule forumMargin">
+                <!--<a href="#" onclick="showDiscussions(1);">-->
+                    <div class="col-lg-12 columnPad">
+                        <div class="pullLeft">
+                            <h1>Module 2: NAME</h1> 
+                        </div>
+                        <div class="pullRight">
+                            <a class="btn btn-primary themeButton" href="#">Start Discussion</a>
+                        </div>
+                    </div>
+                <!--</a>-->
+            </div>
+
+            <div id="moduleDiscussions2" class="row forumPad" style="display:block;">
+                <table class="forumTable">
+                    <thead>
+                        <th>
+                            Discussion
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th class="pullRight">
+                            Replies
+                        </th>
+                    </thead>
+
+                    <tr class="forumModule">
+                        <td>
+                            <a href="#">Discussion name here</a>
+                        </td>
+                        <td>
+                            <a href="#">User</a>
+                        </td>
+                        <td class="pullRight">
+                            15
+                        </td>
+                    </tr>
+                    <tr class="forumModule">
+                        <td>
+                            <a href="#">Discussion name here</a>
+                        </td>
+                        <td>
+                            <a href="#">User</a>
+                        </td>
+                        <td class="pullRight">
+                            15
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+            <div id="module3" class="row forumModule forumMargin">
+                <!--<a href="#" onclick="showDiscussions(1);">-->
+                    <div class="col-lg-12 columnPad">
+                        <div class="pullLeft">
+                            <h1>Module 3: NAME</h1> 
+                        </div>
+                        <div class="pullRight">
+                            <a class="btn btn-primary themeButton" href="#">Start Discussion</a>
+                        </div>
+                    </div>
+                <!--</a>-->
+            </div>
+
+            <div id="moduleDiscussions3" class="row forumPad" style="display:block;">
+                <table class="forumTable">
+                    <thead>
+                        <th>
+                            Discussion
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th class="pullRight">
+                            Replies
+                        </th>
+                    </thead>
+
+                    <tr class="forumModule">
+                        <td>
+                            <a href="#">Discussion name here</a>
+                        </td>
+                        <td>
+                            <a href="#">User</a>
+                        </td>
+                        <td class="pullRight">
+                            15
+                        </td>
+                    </tr>
+                    <tr class="forumModule">
+                        <td>
+                            <a href="#">Discussion name here</a>
+                        </td>
+                        <td>
+                            <a href="#">User</a>
+                        </td>
+                        <td class="pullRight">
+                            15
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+        </div>
+    
+    </body>
+
+<script>
+    function showDiscussions(modNumber);{
+      let html_id ="moduleDiscussions" + modNumber;
+      console.log(html_id);
+      if($(html_id).css("display")  == 'block'){
+          $(html_id).css("display", "none");
+      } else {
+          $(html_id).css("display", "block");
+      }
+    }
+</script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</html>
