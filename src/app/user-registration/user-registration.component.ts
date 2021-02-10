@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services/authentication.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-registration',
@@ -10,15 +10,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-  form: any = {};
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
   constructor(
     private authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -34,20 +35,22 @@ export class UserRegistrationComponent implements OnInit {
   get fval() { return this.registerForm.controls; }
 
   onFormSubmit(){
-    console.log(this.form);
     this.submitted = true;
     // return for here if form is invalid
     if (this.registerForm.invalid) {
     return;
     }
     this.loading = true;
-    this.authService.register(this.form).subscribe(
+    this.authService.register(this.registerForm.value).subscribe(
       data => {
         console.log(data);
+        this.isSignUpFailed = false;
+        this.router.navigate(['/log-in']);
       },
       err => {
-        this.toastr.error(err.error.message, 'Error');
+        this.errorMessage = err.error.message;
         this.loading = false;
+        this.isSignUpFailed = true;
       }
     );
   }

@@ -51,6 +51,12 @@ input {
       padding: 12%;
   }
 
+  .failedSignup {
+    color: red;
+    padding: 12%;
+    text-align: center;
+  }
+
   .submit-button {
     background-color: #ffbf3c;
     color:  #1c355e;
