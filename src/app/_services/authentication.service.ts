@@ -25,8 +25,8 @@ export class AuthenticationService {
     console.log(user.email);
     return this.http.post(AUTH_API + 'signup', {
       email: user.email,
-      firstName: user.firstname,
-      lastname: user.lastname,
+      firstName: user.firstName,
+      lastName: user.lastName,
       username: user.username,
       password: user.password
     }, httpOptions);
