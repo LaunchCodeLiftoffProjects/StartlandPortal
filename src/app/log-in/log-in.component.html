@@ -6,7 +6,7 @@
         <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
             <div class="form-group">
                 <label for="email">Email:</label><br>
-                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Email"><br>
+                <input [(ngModel)]="form.email" type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Email"><br>
                 <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
                     <span *ngIf="fval.email.errors.required">Email is required</span>
                     <span *ngIf="fval.email.errors.email">Enter valid email address</span>
@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label><br>
-                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Password"><br>
+                <input [(ngModel)]="form.password" type="password" class="form-control" formControlName="password" name="password" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Password"><br>
                 <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
                     <span *ngIf="fval.password.errors.required">Password is required</span>
                 </div>
