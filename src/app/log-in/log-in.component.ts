@@ -4,7 +4,6 @@ import { TokenStorageService } from '../_services/token-storage.service';
 
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-log-in',
@@ -20,13 +19,14 @@ export class LogInComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  isLoginFailed = false;
+  errorMessage = '';
 
   constructor(
     private authService: AuthenticationService,
     private tokenStorage: TokenStorageService,
     private formBuilder: FormBuilder,
-    private router: Router,
-    private toastr: ToastrService
+    private router: Router
     ) { }
 
     
@@ -54,12 +54,14 @@ export class LogInComponent implements OnInit {
         data => {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
+          this.isLoginFailed = false;
 
           this.roles = this.tokenStorage.getUser().roles;
           this.router.navigate(['/home']);
         },
         err => {
-          this.toastr.error(err.error.message, 'Error');
+          this.errorMessage = err.error.message;
+          this.isLoginFailed = true;
           this.loading = false;
         }
       );

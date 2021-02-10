@@ -80,3 +80,7 @@ input[type=email], input[type=password] {
     color: red;
     padding: 12%;
 }
+
+.failedLogin {
+    color: red;
+}
