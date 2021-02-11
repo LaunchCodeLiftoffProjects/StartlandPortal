@@ -14,12 +14,12 @@ import { ToastrService } from 'ngx-toastr';
 export class LogInComponent implements OnInit {
 
   form: any = {};
+  isLoggedIn = false;
   roles: string[] = [];
 
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: string;
 
   constructor(
     private authService: AuthenticationService,
@@ -37,6 +37,7 @@ export class LogInComponent implements OnInit {
       });
 
       if (this.tokenStorage.getToken()) {
+        this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
       }
   }
@@ -47,14 +48,16 @@ export class LogInComponent implements OnInit {
     this.submitted = true;
     // return for here if form is invalid
     if (this.loginForm.invalid) {
-    return;
+      this.isLoggedIn = false;
+      return;
     }
     this.loading = true;
     this.authService.login(this.form).subscribe(
         data => {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
-
+          
+          this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;
           this.router.navigate(['/home']);
         },

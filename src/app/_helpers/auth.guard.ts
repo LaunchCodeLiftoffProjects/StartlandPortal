@@ -8,10 +8,10 @@ const TOKEN_HEADER_KEY = 'x-access-token';
 
 @Injectable()
 
-export class AuthGuard implements HttpInterceptor {
+export class AuthGuard implements HttpInterceptor{
   
   constructor(private token: TokenStorageService) { }
-   
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let authReq = req;
     const token = this.token.getToken();

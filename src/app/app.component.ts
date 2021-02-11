@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_services/authentication.service';
+import { LogInComponent } from './log-in/log-in.component';
 
 @Component({
   selector: 'app-root',
