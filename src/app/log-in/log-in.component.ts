@@ -4,6 +4,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {AppComponent } from '../app.component'
 
 @Component({
   selector: 'app-log-in',
@@ -12,25 +13,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LogInComponent implements OnInit {
 
-  form: any = {};
   isLoggedIn = false;
   roles: string[] = [];
 
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-<<<<<<< HEAD
   returnUrl: string;
   isLoginFailed = false;
   errorMessage = '';
-=======
->>>>>>> origin/fix-user-token
 
   constructor(
     private authService: AuthenticationService,
     private tokenStorage: TokenStorageService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private appComponent: AppComponent
     ) { }
 
     
@@ -56,19 +54,19 @@ export class LogInComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.authService.login(this.form).subscribe(
+    this.authService.login(this.loginForm.value).subscribe(
         data => {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
-<<<<<<< HEAD
           this.isLoginFailed = false;
 
-=======
           
           this.isLoggedIn = true;
->>>>>>> origin/fix-user-token
           this.roles = this.tokenStorage.getUser().roles;
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home'])
+            .then(() => {
+              window.location.reload();
+            });
         },
         err => {
           this.errorMessage = err.error.message;
@@ -76,9 +74,5 @@ export class LogInComponent implements OnInit {
           this.loading = false;
         }
       );
-    }
-
-    reloadPage() {
-      window.location.reload();
     }
 }

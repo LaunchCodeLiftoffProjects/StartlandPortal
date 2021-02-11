@@ -7,7 +7,7 @@
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
-        <a href *ngIf="isLoggedIn" (ngOnClick)="logout()">Logout</a>
+        <a href *ngIf="isLoggedIn" (click)="logout()">Logout</a>
         <a href="/log-in" *ngIf="!isLoggedIn">Login</a>
     </nav>
 </div>
