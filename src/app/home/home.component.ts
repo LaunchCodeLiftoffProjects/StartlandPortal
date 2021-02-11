@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   currentUser: any;
-  content: string;
+  content: string;  
 
   constructor(
     private token: TokenStorageService,
@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currentUser = this.token.getUser;
-
+    this.currentUser = this.token.getUser();
+    
     this.userService.getPublicContent().subscribe(
       data => {
         this.content = data;

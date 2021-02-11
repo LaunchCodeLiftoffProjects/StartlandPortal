@@ -5,14 +5,10 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 
-import { AuthGuard } from './_helpers/auth.guard';
-
-
-
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
   { path: '', component: LogInComponent },
-  { path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
+  { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: '' }
 ];
 

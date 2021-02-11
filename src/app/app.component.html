@@ -1,10 +1,15 @@
-<div class="jumbotron">
-    <a *ngIf="currentUser" class="nav-item nav-link" style="cursor:pointer" (click)="logout()">Logout</a>
-    <div class="container">
-    <div class="row">
-    <div class="col-md-4 offset-md-4">
-    <router-outlet></router-outlet>
-    </div>
-    </div>
-    </div>
-    </div>
+<div class="topnav" id="myTopnav">
+    <nav>
+        <a href="home" class="active">Home</a>
+        <a href="announcements">Announcements</a>
+        <a href="modules">Modules</a>
+        <a href="Forums">Forums</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a href *ngIf="isLoggedIn" (ngOnClick)="logout()">Logout</a>
+        <a href="/log-in" *ngIf="!isLoggedIn">Login</a>
+    </nav>
+</div>
+<router-outlet></router-outlet>
+  
