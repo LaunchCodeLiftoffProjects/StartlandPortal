@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
@@ -19,7 +20,6 @@ import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './_helpers/auth.guard'
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
 
@@ -27,6 +27,7 @@ import { UserService } from './_services/user.service';
 @NgModule({
   declarations: [
     AppComponent,
+    AnnouncementsComponent,
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
