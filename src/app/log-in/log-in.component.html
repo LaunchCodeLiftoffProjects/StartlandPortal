@@ -3,15 +3,6 @@
         <img class="login-logo" src="assets/images/SLO-horz-cyan_SLO-horz-cyan.png">
     </div>
     <div class="login-form">
-<<<<<<< HEAD
-        <form [formGroup]="login-form">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" placeholder="email"><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="password"><br>
-            <button name="button" type="submit" class="submit-button">LOGIN</button>
-            <a href="/register" class="register">Register</a>
-=======
         <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
             <div class="form-group">
                 <label for="email">Email:</label><br>
@@ -35,7 +26,6 @@
                 Login failed: {{ errorMessage }}
             </div>
             <a href="/user-registration"class="register">Register</a>
->>>>>>> 62088d3544140bef9b5be08bd703abe99e815777
         </form>
     </div>
 </div>
