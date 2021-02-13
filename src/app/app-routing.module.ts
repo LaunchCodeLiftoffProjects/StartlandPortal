@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  
+  { path: 'user-registration', component: UserRegistrationComponent },
+  { path: '', component: LogInComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

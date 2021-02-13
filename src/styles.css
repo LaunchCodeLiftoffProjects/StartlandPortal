@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+/* Add a Dark blue background color to the top navigation */
+.topnav {
+    background-color: #0f9fc3;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #1c355e;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ffbf3c;
+    color: #1c355e;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: #ffbf3c;
+    color: #1c355e;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }

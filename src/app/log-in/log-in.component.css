@@ -1,0 +1,86 @@
+.login-box {
+    display: flex;
+    position: relative;
+    margin: auto;
+    margin-top: 10%;
+    border: 1px solid  white;
+    background-color: #1c355e;
+    width: 560px;
+}
+
+.login-box .logo {
+    width: 45%;
+    float: left;
+    margin: auto;
+}
+
+.logo .login-logo {
+    width: 100%;
+    height: 100%;
+}
+
+.login-box .login-form {
+    color: white;
+    background-color: #0f9fce;
+    width: 55%;
+    float: right;
+    margin: auto;
+    padding: 16px;
+}
+
+.startland-yellow {
+    color: #ffbf3c;
+}
+
+.submit-button {
+    background-color: #ffbf3c;
+    color:  #1c355e;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #ffbf3c;
+    cursor: pointer;
+    width: 50%;
+}
+
+.register {
+    color: #1c355e;
+    float: right;
+    padding-top: 22px;
+}
+.register:hover {
+    color:  #ffbf3c;
+}
+
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  label {
+      color:#ffbf3c;
+  }
+
+  button:hover {
+    color: #ffbf3c;
+    background-color:  #1c355e;
+    border: 1px solid #1c355e;
+  }
+
+  @media only screen and (max-width: 600px){
+      .login-box {
+          width: 100%;
+      }
+  }
+
+  span {
+    color: red;
+    padding: 12%;
+}
+
+.failedLogin {
+    color: red;
+}
