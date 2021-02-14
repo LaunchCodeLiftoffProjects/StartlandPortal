@@ -17,6 +17,8 @@ import { CourseSummaryComponent } from './course-summary/course-summary.componen
 
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { HomeComponent } from './home/home.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardUserComponent } from './board-user/board-user.component';
 
 import { AuthGuard } from './_helpers/auth.guard'
 
@@ -31,7 +33,9 @@ import { UserService } from './_services/user.service';
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
-    HomeComponent
+    HomeComponent, 
+    BoardAdminComponent,
+    BoardUserComponent,
   ],
   imports: [
     BrowserModule,
