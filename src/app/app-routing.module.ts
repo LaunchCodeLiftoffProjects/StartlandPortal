@@ -4,9 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
+import { CourseSummaryComponent } from './course-summary/course-summary.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
+  { path: 'course-summary', component: CourseSummaryComponent },
+  { path: 'announcements', component: AnnouncementsComponent },
   { path: '', component: LogInComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: '' }
