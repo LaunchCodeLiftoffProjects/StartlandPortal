@@ -18,8 +18,6 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './_helpers/auth.guard'
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
 
