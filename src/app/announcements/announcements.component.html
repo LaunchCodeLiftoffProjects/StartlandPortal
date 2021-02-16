@@ -5,11 +5,13 @@
   </div>
 </div>
 <div class="announcements">
-  <div class="addAnnouncement" *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
-    <label>Add announcement: </label><br>
-    <textarea #newAnnouncement (keyup.enter)='addAnnouncement(newAnnouncement.value); newAnnouncement.value = ""' name="announcement"></textarea><br>
-    <button (click)='addAnnouncement(newAnnouncement.value); newAnnouncement.value = ""'>Add</button>
-  </div>
+  <form [formGroup]="announcementForm" (ngSubmit)="onFormSubmit()" class="addAnnouncement" *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
+    <div class="form-group">
+      <label>Add announcement: </label><br>
+      <textarea formControlName="announcement" class="form-control" #newAnnouncement (keyup.enter)='addAnnouncement(newAnnouncement.value); newAnnouncement.value = ""' name="announcement"></textarea><br>
+      <button (click)='addAnnouncement(newAnnouncement.value); newAnnouncement.value = ""'>Add</button>      
+    </div>
+  </form>
 </div>
 
 
