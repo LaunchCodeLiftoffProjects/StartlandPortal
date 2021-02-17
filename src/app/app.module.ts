@@ -19,9 +19,9 @@ import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './_helpers/auth.guard'
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { UserService } from './_services/user.service';
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
-    HomeComponent
+    HomeComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -50,4 +51,3 @@ import { UserService } from './_services/user.service';
 bootstrap: [AppComponent]
 })
 export class AppModule { }
- 
