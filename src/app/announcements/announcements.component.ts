@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from '../_services/token-storage.service';
 import { AnnouncementService } from '../_services/announcement.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { TokenStorageService } from '../_services/token-storage.service';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-announcements',
@@ -12,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AnnouncementsComponent implements OnInit {
   announcements = [];
   currentUser: any;
+  
   announcementForm: FormGroup;
   submitted = false;
 
@@ -24,7 +26,7 @@ export class AnnouncementsComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this.token.getUser();
     this.announcementForm = this.formBuilder.group({
-      announcement: ['']
+      content: ['']
     });
   }
 
@@ -35,6 +37,7 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   onFormSubmit(){
+    console.log(this.announcementForm.value)
     this.announcementService.create(this.announcementForm.value)
       .subscribe(
         response => {

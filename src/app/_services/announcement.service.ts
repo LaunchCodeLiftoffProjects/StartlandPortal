@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost:8080/api/announcement/';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +25,11 @@ export class AnnouncementService {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(data) {
-    return this.http.post(baseUrl + 'create', data);
+  create(data): Observable<any> {
+    console.log(data);
+    return this.http.post(baseUrl + 'create', {
+      content: data.content
+    }, httpOptions);
   }
 
   update(id, data) {

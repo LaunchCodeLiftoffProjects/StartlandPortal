@@ -4,12 +4,20 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Announcement
 exports.create = (req, res) => {
-  
+  Announcement.create({
+    content: req.body.content
+  })
+  .then(() => {
+    res.send({ message: "Announcement was added successfully!" });
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  })
 };
 
 // Retrieve all Announcements from the database.
 exports.findAll = (req, res) => {
-  Announcement.create(req.body)
+  
 };
 
 // Find a single Announcement with an id
