@@ -3,7 +3,7 @@ import { AnnouncementService } from '../_services/announcement.service';
 
 import { TokenStorageService } from '../_services/token-storage.service';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-announcements',
@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./announcements.component.css']
 })
 export class AnnouncementsComponent implements OnInit {
-  announcements = [];
+  announcements: any;
   currentUser: any;
   
   announcementForm: FormGroup;
@@ -28,12 +28,15 @@ export class AnnouncementsComponent implements OnInit {
     this.announcementForm = this.formBuilder.group({
       content: ['']
     });
-  }
-
-  addAnnouncement(newAnnouncement: string){
-    if(newAnnouncement !== ""){
-      this.announcements.push(newAnnouncement);
-   }
+    this.announcementService.getAll()
+      .subscribe(
+        data => {
+          this.announcements = data;
+        },
+        err => {
+          this.announcements = JSON.parse(err.error).message;
+        }
+      );
   }
 
   onFormSubmit(){
@@ -43,9 +46,23 @@ export class AnnouncementsComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
+          window.location.reload();
         },
         error => {
           console.log(error);
         });
+      }
+
+      deleteAnnouncement(announcement: any){
+        this.announcementService.delete(announcement.id)
+          .subscribe(
+            response => {
+              console.log(response);
+              window.location.reload();
+            },
+            error => {
+              console.log(error);
+            }
+          )
       }
 }

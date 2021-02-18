@@ -18,7 +18,7 @@ export class AnnouncementService {
   ) { }
 
   getAll() {
-    return this.http.get(baseUrl);
+    return this.http.get(baseUrl + 'getAll');
   }
 
   get(id) {
@@ -26,7 +26,6 @@ export class AnnouncementService {
   }
 
   create(data): Observable<any> {
-    console.log(data);
     return this.http.post(baseUrl + 'create', {
       content: data.content
     }, httpOptions);
@@ -36,8 +35,9 @@ export class AnnouncementService {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
-  delete(id) {
-    return this.http.delete(`${baseUrl}/${id}`);
+  delete(id): Observable<any> {
+    return this.http.delete(baseUrl + `${id}`);
+    ;
   }
 
   deleteAll() {

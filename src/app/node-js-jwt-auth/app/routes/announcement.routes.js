@@ -11,4 +11,8 @@ module.exports = function(app) {
 
     app.post("/api/announcement/create", controller.create);
 
+    app.get("/api/announcement/getAll", controller.findAll);
+
+    app.delete(`/api/announcement/:id?`, controller.delete);
+
 };

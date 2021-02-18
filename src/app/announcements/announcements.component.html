@@ -1,15 +1,18 @@
 <div class="announcements">
   <div>
     <h1 class="announcementsHeader">Internship Announcements</h1>
-    <p *ngFor ="let announcement of announcements">{{announcement}}</p>
+    <div *ngFor ="let announcement of announcements">
+      <p>{{announcement.content}}</p>
+      <button *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'" (click)='deleteAnnouncement(announcement)'>Delete</button>
+    </div>
   </div>
 </div>
 <div class="announcements">
   <form [formGroup]="announcementForm" (ngSubmit)="onFormSubmit()" class="addAnnouncement" *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
     <div class="form-group">
       <label>Add announcement: </label><br>
-      <textarea formControlName="content" class="form-control" #newAnnouncement (keyup.enter)='addAnnouncement(newAnnouncement.value); newAnnouncement.value = ""' name="announcement"></textarea><br>
-      <button (click)='addAnnouncement(newAnnouncement.value); newAnnouncement.value = ""'>Add</button>      
+      <textarea formControlName="content" class="form-control"></textarea><br>
+      <button>Add</button>      
     </div>
   </form>
 </div>
