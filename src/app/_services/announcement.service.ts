@@ -32,7 +32,9 @@ export class AnnouncementService {
   }
 
   update(id, data) {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.put(baseUrl + `${id}`, {
+      content: data
+    });
   }
 
   delete(id): Observable<any> {

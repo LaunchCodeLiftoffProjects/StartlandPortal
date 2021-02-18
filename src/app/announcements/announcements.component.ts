@@ -15,7 +15,10 @@ export class AnnouncementsComponent implements OnInit {
   currentUser: any;
   
   announcementForm: FormGroup;
+  reviseAnnouncementForm: FormGroup;
   submitted = false;
+
+  updateMode = false;
 
   constructor(
     private token: TokenStorageService,
@@ -40,7 +43,6 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   onFormSubmit(){
-    console.log(this.announcementForm.value)
     this.announcementService.create(this.announcementForm.value)
       .subscribe(
         response => {
@@ -65,4 +67,22 @@ export class AnnouncementsComponent implements OnInit {
             }
           )
       }
+
+      updateAnnouncement(){
+        this.updateMode = true;
+      }
+
+      submitNewAnnouncement(announcement: any, newContent: string){
+        console.log(newContent);
+        this.announcementService.update(announcement.id, newContent)
+          .subscribe(
+            response => {
+              console.log(response);
+              this.updateMode = false;
+              window.location.reload();
+            },
+            error => {
+              console.log(error);
+            });
+          }
 }

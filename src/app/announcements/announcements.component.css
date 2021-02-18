@@ -8,6 +8,6 @@
   text-align: center;
 }
 
-.addAnnouncement {
+.addAnnouncement, .updateAnnouncement {
   text-align: center;
 }

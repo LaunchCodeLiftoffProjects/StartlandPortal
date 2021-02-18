@@ -15,4 +15,6 @@ module.exports = function(app) {
 
     app.delete(`/api/announcement/:id?`, controller.delete);
 
+    app.put(`/api/announcement/:id?`, controller.update);
+
 };

@@ -3,7 +3,15 @@
     <h1 class="announcementsHeader">Internship Announcements</h1>
     <div *ngFor ="let announcement of announcements">
       <p>{{announcement.content}}</p>
-      <button *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'" (click)='deleteAnnouncement(announcement)'>Delete</button>
+      <div *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
+        <button (click)='deleteAnnouncement(announcement)'>Delete</button><br>
+        <div *ngIf="updateMode === true" class="updateAnnouncement">
+          <label>Update announcement: </label><br>
+          <textarea #newAnnouncement></textarea><br>
+          <button (click)='submitNewAnnouncement(announcement, newAnnouncement.value)'>Submit</button>
+        </div>
+        
+      </div>
     </div>
   </div>
 </div>
@@ -12,9 +20,10 @@
     <div class="form-group">
       <label>Add announcement: </label><br>
       <textarea formControlName="content" class="form-control"></textarea><br>
-      <button>Add</button>      
+      <button>Add</button>
     </div>
   </form>
+  <button (click)='updateAnnouncement()' *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">Update</button>
 </div>
 
 

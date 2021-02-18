@@ -34,8 +34,15 @@ exports.findOne = (req, res) => {
 
 // Update an Announcement by the id in the request
 exports.update = (req, res) => {
-  
-};
+  Announcement.update({ content: req.body.content }, { where: { id: req.params.id }
+  })
+  .then(() => {
+    res.send({ message: "Announcement updated successfully!" });
+  })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    })
+  };
 
 // Delete an Announcement with the specified id in the request
 exports.delete = (req, res) => {
