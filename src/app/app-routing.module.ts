@@ -6,6 +6,7 @@ import { ForumComponent } from './forum/forum.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 import { StartDiscussionComponent } from './start-discussion/start-discussion.component'
+import { DiscussionPostComponent } from './discussion-post/discussion-post.component'
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: '', component: LogInComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: '' },
-  { path: 'start-discussion', component: StartDiscussionComponent }
+  { path: 'start-discussion', component: StartDiscussionComponent },
+  { path: 'discussion-post', component: DiscussionPostComponent }
 ];
 
 @NgModule({

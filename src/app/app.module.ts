@@ -24,6 +24,7 @@ import { AuthGuard } from './_helpers/auth.guard'
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
 import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
+import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { StartDiscussionComponent } from './start-discussion/start-discussion.co
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
-    StartDiscussionComponent
+    StartDiscussionComponent,
+    DiscussionPostComponent
   ],
   imports: [
     BrowserModule,
