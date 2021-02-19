@@ -75,3 +75,12 @@ input[type=email], input[type=password] {
           width: 100%;
       }
   }
+
+  span {
+    color: red;
+    padding: 12%;
+}
+
+.failedLogin {
+    color: red;
+}

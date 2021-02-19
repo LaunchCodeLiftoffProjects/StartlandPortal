@@ -11,15 +11,23 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.2.0",
+    "@angular/animations": "^8.2.14",
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "~8.2.0",
     "@angular/compiler": "~8.2.0",
     "@angular/core": "^8.2.14",
     "@angular/forms": "~8.2.0",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+<<<<<<< HEAD
     "rxjs": "~6.6.3",
+=======
+    "cors": "^2.8.5",
+    "ngx-toastr": "^10.2.0",
+    "rxjs": "~6.4.0",
+>>>>>>> master
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

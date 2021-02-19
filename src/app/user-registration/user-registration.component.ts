@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../_services/authentication.service';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,15 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-  
+  registerForm: FormGroup;
+  loading = false;
+  submitted = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
   constructor(
+    private authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private router: Router,
+    private router: Router
     ) { }
-    
-    registerForm: FormGroup;
-    loading = false;
-    submitted = false;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -37,5 +41,17 @@ export class UserRegistrationComponent implements OnInit {
     return;
     }
     this.loading = true;
+    this.authService.register(this.registerForm.value).subscribe(
+      data => {
+        console.log(data);
+        this.isSignUpFailed = false;
+        this.router.navigate(['/log-in']);
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.loading = false;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 }

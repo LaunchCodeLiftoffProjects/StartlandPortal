@@ -1,0 +1,7 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <app-announcements></app-announcements>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
