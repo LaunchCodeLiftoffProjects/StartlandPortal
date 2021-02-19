@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: '', component: LogInComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', redirectTo: '' },
   { path: 'start-discussion', component: StartDiscussionComponent },
-  { path: 'discussion-post', component: DiscussionPostComponent }
+  { path: 'discussion-post', component: DiscussionPostComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
