@@ -19,6 +19,11 @@
         {{ role }}
       </li>
     </ul>
+
+    <div class="progress-bar-element">
+      <app-progress-bar></app-progress-bar>
+    </div>
+
   </div>
 
   <div class="container">
@@ -26,7 +31,10 @@
       <p>{{ content }}</p>
     </header>
   </div>
-  
+
+
   <ng-template #loggedOut>
     Please login.
   </ng-template>
+
+

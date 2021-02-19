@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', component: LogInComponent },
   { path: 'home', component: HomeComponent },
   { path: 'progress-bar', component: ProgressBarComponent},
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' } //always make this the last one listed
 ];
 
 @NgModule({
