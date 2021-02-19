@@ -16,14 +16,12 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-<<<<<<< HEAD
 import { ModulesComponent } from './modules/modules.component';
 import { Module1Component } from './module1/module1.component';
 import { Module2Component } from './module2/module2.component';
 import { Module3Component } from './module3/module3.component';
 import { Module4Component } from './module4/module4.component';
 import { Module5Component } from './module5/module5.component';
-=======
 import { ForumComponent } from './forum/forum.component';
 import { HomeComponent } from './home/home.component';
 
@@ -34,7 +32,6 @@ import { UserService } from './_services/user.service';
 import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
 import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
 
->>>>>>> master
 
 @NgModule({
   declarations: [
@@ -43,19 +40,16 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
-<<<<<<< HEAD
     ModulesComponent,
     Module1Component,
     Module2Component,
     Module3Component,
     Module4Component,
-    Module5Component
-=======
+    Module5Component,
     ForumComponent,
     HomeComponent,
     StartDiscussionComponent,
     DiscussionPostComponent
->>>>>>> master
   ],
   imports: [
     BrowserModule,
@@ -66,10 +60,7 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
-=======
     ToastrModule.forRoot()
->>>>>>> master
   ],
   providers: [
     UserService,
@@ -78,4 +69,3 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
 bootstrap: [AppComponent]
 })
 export class AppModule { }
- 
