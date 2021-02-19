@@ -32,7 +32,6 @@ import { UserService } from './_services/user.service';
 import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
 import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +48,7 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
     ForumComponent,
     HomeComponent,
     StartDiscussionComponent,
-    DiscussionPostComponent
+    DiscussionPostComponent,
   ],
   imports: [
     BrowserModule,
