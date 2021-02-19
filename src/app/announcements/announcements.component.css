@@ -1,0 +1,13 @@
+.announcements {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.announcementsHeader {
+  text-align: center;
+}
+
+.addAnnouncement, .updateAnnouncement {
+  text-align: center;
+}

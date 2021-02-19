@@ -12,26 +12,41 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { ForumComponent } from './forum/forum.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './_helpers/auth.guard'
 
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
+<<<<<<< HEAD
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+=======
+import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
+import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
+>>>>>>> master
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AnnouncementsComponent,
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
+<<<<<<< HEAD
     HomeComponent,
     ProgressBarComponent
+=======
+    ForumComponent,
+    HomeComponent,
+    StartDiscussionComponent,
+    DiscussionPostComponent
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
