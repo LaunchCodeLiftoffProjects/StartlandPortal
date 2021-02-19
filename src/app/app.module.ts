@@ -16,12 +16,15 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { ForumComponent } from './forum/forum.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './_helpers/auth.guard'
 
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
+import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
+import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { UserService } from './_services/user.service';
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
-    HomeComponent
+    ForumComponent,
+    HomeComponent,
+    StartDiscussionComponent,
+    DiscussionPostComponent
   ],
   imports: [
     BrowserModule,
