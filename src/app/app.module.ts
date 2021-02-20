@@ -23,9 +23,7 @@ import { AuthGuard } from './_helpers/auth.guard'
 
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
-import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
-import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
-
+import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component'
 
 @NgModule({
   declarations: [
@@ -36,8 +34,7 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
-    StartDiscussionComponent,
-    DiscussionPostComponent
+    SubmitModuleOneComponent
   ],
   imports: [
     BrowserModule,

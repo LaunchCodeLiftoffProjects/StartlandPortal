@@ -46,27 +46,22 @@
                         </th>
                     </thead>
 
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
-                    </tr>
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
+                    <tr class="forumModule" *ngFor ="let assignment of assignments">
+                        <div *ngIf="assignment.moduleNum === 1" class="row forumPad">
+                            <td>
+                                <a href="#">{{assignment.name}}</a>
+                            </td>
+                            <div *ngFor ="let user of users">
+                                <div *ngIf="user.id === assignment.userId">
+                                    <td>
+                                        <a href="#">{{user.username}}</a>
+                                    </td>
+                                </div>
+                            </div>
+                            <td class="pullRight">
+                                15
+                            </td>
+                        </div>
                     </tr>
                     
                 </table>

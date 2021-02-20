@@ -5,8 +5,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { ForumComponent } from './forum/forum.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
-import { StartDiscussionComponent } from './start-discussion/start-discussion.component'
-import { DiscussionPostComponent } from './discussion-post/discussion-post.component'
+import { SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component'
 
 
 const routes: Routes = [
@@ -14,8 +13,7 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: '', component: LogInComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'start-discussion', component: StartDiscussionComponent },
-  { path: 'discussion-post', component: DiscussionPostComponent },
+  { path: 'submit-module-one', component: SubmitModuleOneComponent },
   { path: '**', redirectTo: '' }
 ];
 

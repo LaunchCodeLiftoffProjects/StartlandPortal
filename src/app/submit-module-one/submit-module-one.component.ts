@@ -4,14 +4,15 @@ import { AssignmentService } from '../_services/assignment.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-start-discussion',
-  templateUrl: './start-discussion.component.html',
-  styleUrls: ['./start-discussion.component.css']
+  selector: 'app-submit-module-one',
+  templateUrl: './submit-module-one.component.html',
+  styleUrls: ['./submit-module-one.component.css']
 })
-export class StartDiscussionComponent implements OnInit {
+export class SubmitModuleOneComponent implements OnInit {
   currentUser: any;
   submitAssignmentForm: FormGroup;
   assignments: any;
+  submitted = false;
 
   constructor(
     private token: TokenStorageService,
@@ -27,7 +28,15 @@ export class StartDiscussionComponent implements OnInit {
       link: [''],
       userId: this.currentUser.id
     });
-    
+    this.assignmentService.getAll()
+      .subscribe(
+        data => {
+          this.assignments = data;
+        },
+        err => {
+          this.assignments = JSON.parse(err.error).message;
+        }
+      );
   }
 
   onFormSubmit(){
@@ -39,6 +48,10 @@ export class StartDiscussionComponent implements OnInit {
         error => {
           console.log(error);
         });
+      }
+
+      checkIfSubmitted(){
+
       }
 
 }
