@@ -1,13 +1,19 @@
 <div class="submit-assignment">
     <h1>Submit Assignment for Module 1</h1>
         <div class="submit-assignment-form">
-            <form [formGroup]="submitAssignmentForm" (ngSubmit)="onFormSubmit()">
+            <form [formGroup]="submitAssignmentForm" (ngSubmit)="onFormSubmit()" *ngIf="!checkIfSubmitted(); else alreadySubmitted">
 
-                <div class="form-group">
+                <div class="form-group" >
                     <input type="text" formControlName="link" size=40 maxlength=150> 
                 </div>
 
                 <button>Submit Assignment</button>
             </form>
+
+            <div #alreadySubmitted>
+                <div>
+                    <p>An assignment was already submitted for this module.</p>
+                </div>
+            </div>
         </div>
 </div>

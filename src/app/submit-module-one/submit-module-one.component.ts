@@ -12,7 +12,6 @@ export class SubmitModuleOneComponent implements OnInit {
   currentUser: any;
   submitAssignmentForm: FormGroup;
   assignments: any;
-  submitted = false;
 
   constructor(
     private token: TokenStorageService,
@@ -51,6 +50,13 @@ export class SubmitModuleOneComponent implements OnInit {
       }
 
       checkIfSubmitted(){
+        for (let i = 0; i < this.assignments.length; i++) {
+          if (this.assignments[i].userId === this.currentUser.id && this.assignments[i].moduleNum === 1) {
+            return true;
+          } else {
+            return false;
+          }
+        }
 
       }
 
