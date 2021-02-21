@@ -12,6 +12,8 @@ export class SubmitModuleOneComponent implements OnInit {
   currentUser: any;
   submitAssignmentForm: FormGroup;
   assignments: any;
+  updateMode = false;
+  submitted = false;
 
   constructor(
     private token: TokenStorageService,
@@ -27,10 +29,18 @@ export class SubmitModuleOneComponent implements OnInit {
       link: [''],
       userId: this.currentUser.id
     });
+
     this.assignmentService.getAll()
       .subscribe(
         data => {
           this.assignments = data;
+          for (let i = 0; i < this.assignments.length; i++) {
+            if (this.assignments[i].userId === this.currentUser.id && this.assignments[i].moduleNum === 1) {
+              this.submitted = true;
+            } else {
+              this.submitted = false;
+            }
+          }
         },
         err => {
           this.assignments = JSON.parse(err.error).message;
@@ -50,14 +60,19 @@ export class SubmitModuleOneComponent implements OnInit {
       }
 
       checkIfSubmitted(){
+        console.log(this.assignments)
         for (let i = 0; i < this.assignments.length; i++) {
           if (this.assignments[i].userId === this.currentUser.id && this.assignments[i].moduleNum === 1) {
-            return true;
+            this.submitted = true;
           } else {
-            return false;
+            this.submitted = false;
           }
         }
+      }
 
+      updateAssignment(){
+        console.log(this.assignments.length)
+        this.updateMode = true;
       }
 
 }

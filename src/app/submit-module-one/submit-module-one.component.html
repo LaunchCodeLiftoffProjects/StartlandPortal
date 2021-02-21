@@ -1,7 +1,7 @@
 <div class="submit-assignment">
     <h1>Submit Assignment for Module 1</h1>
         <div class="submit-assignment-form">
-            <form [formGroup]="submitAssignmentForm" (ngSubmit)="onFormSubmit()" *ngIf="!checkIfSubmitted(); else alreadySubmitted">
+            <form [formGroup]="submitAssignmentForm" (ngSubmit)="onFormSubmit()" *ngIf="submitted === false">
 
                 <div class="form-group" >
                     <input type="text" formControlName="link" size=40 maxlength=150> 
@@ -10,9 +10,16 @@
                 <button>Submit Assignment</button>
             </form>
 
-            <div #alreadySubmitted>
+            <div *ngIf="submitted === true">
                 <div>
                     <p>An assignment was already submitted for this module.</p>
+                    <button (click)='updateAssignment()'>Update Assignment</button>
+                    <button>Delete Assignment</button>
+                    <div *ngIf="updateMode === true">
+                        <label>Update assignment: </label><br>
+                        <input type="text" #newAssignment size=40 maxlength=150/><br>
+                        <button (click)='submitNewAssignment(assignment, newAssignment.value)'>Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
