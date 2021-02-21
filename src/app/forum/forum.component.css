@@ -1,0 +1,123 @@
+.pullLeft{
+    float: left;
+}
+
+.pullRight{
+    float: right;
+}
+
+.themeButton{
+    background-color: #0F9FCE;
+    color: #1C355E;
+    border-color: #1C355E;
+    border-width: thin;
+    font-weight: 500;
+}
+
+.themeButton:hover{
+    background-color: #FFBF3C;
+    color: #1C355E;
+    border-width: thin;
+    border-color: #1C355E;
+}
+
+.paginationArrow{
+    color: #9e9e9e;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.paginationBar{
+    padding: 15px;
+}
+
+
+.fourmBackground{
+    background-color: white;
+    color: black;
+}
+
+.forumModule{
+    background-color: white;
+    color: black;
+}
+
+.forumMargin{
+    margin-bottom: 10px;
+}
+
+.forumPad{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.forumTable{
+    width: 100%;
+    height: auto;
+    border: 1px solid #f2f2f2;
+}
+
+.forumTable th{
+    padding: 5px;
+    color:#0F9FCE;
+}
+
+.forumTable tr{
+    border: 1px solid #f2f2f2;
+}
+
+.forumTable td{
+    padding: 5px;
+}
+
+.categoryModule{
+    background-color: white;
+    color: black;
+    margin-top: 50px;
+}
+
+.columnPad{
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+body{
+    background-color: #f2f2f2;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+a{
+    color: #1C355E;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #0F9FCE;
+    font-weight: 500;
+}
+
+h1{
+    font-size: 1.7em;
+    color: #1C355E;
+}
+
+h2{
+    font-size: 1.5em;
+    color: #1C355E;
+}
+
+h3{
+    font-size: 1.3em;
+    color: #1C355E;
+}
+
+h4{
+    font-size: 1.1em;
+    color: #1C355E;
+}
