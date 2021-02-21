@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 /* Add a Dark blue background color to the top navigation */
 .topnav {
     background-color: #0f9fc3;
@@ -15,7 +16,12 @@
     text-decoration: none;
     font-size: 17px;
   }
-  
+
+  /* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
   /* Change the color of links on hover */
   .topnav a:hover {
     background-color: #ffbf3c;

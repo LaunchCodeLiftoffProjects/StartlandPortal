@@ -1,19 +1,21 @@
-<div>
-    <h1>Edit Your Profile </h1>
-    <hr>
-    <div class="col-md-4">
-      <form [formGroup]="user-profile" autocomplete="off" novalidate>
-        <div class="form-group">
-          <label for="firstName">First Name:</label>
-          <input id="firstName" type="text" class="form-control" placeholder="First Name..." />
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name:</label>
-          <input id="lastName" type="text" class="form-control" placeholder="Last Name..." />
-        </div>
-  
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default">Cancel</button>
-      </form>
-    </div>
-  </div>
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.username }}'s</strong> Profile
+    </h3>
+  </header>
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+  </p>
+  <strong>Roles:</strong>
+  <ul>
+    <li *ngFor="let role of currentUser.roles">
+      {{ role }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
