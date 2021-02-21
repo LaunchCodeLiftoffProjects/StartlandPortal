@@ -33,15 +33,10 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
-<<<<<<< HEAD
-    HomeComponent,
-    UserProfileComponent
-=======
     ForumComponent,
     HomeComponent,
     StartDiscussionComponent,
     DiscussionPostComponent
->>>>>>> master
   ],
   imports: [
     BrowserModule,
