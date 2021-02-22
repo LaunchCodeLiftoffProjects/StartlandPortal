@@ -21,8 +21,8 @@ export class AssignmentService {
     return this.http.get(baseUrl + 'getAll');
   }
 
-  get(id) {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(userId, moduleNum) {
+    return this.http.get(baseUrl + `${userId}/` + `${moduleNum}`);
   }
 
   create(data): Observable<any> {
@@ -48,4 +48,5 @@ export class AssignmentService {
   deleteAll() {
     return this.http.delete(baseUrl);
   }
+
 }

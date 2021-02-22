@@ -23,7 +23,11 @@ import { AuthGuard } from './_helpers/auth.guard'
 
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
-import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component'
+import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
+import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
+import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component';
+import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component';
+import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.c
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
-    SubmitModuleOneComponent
+    SubmitModuleOneComponent,
+    SubmitModuleTwoComponent,
+    SubmitModuleThreeComponent,
+    SubmitModuleFourComponent,
+    SubmitModuleFiveComponent
   ],
   imports: [
     BrowserModule,

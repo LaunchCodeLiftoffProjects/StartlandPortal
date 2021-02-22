@@ -31,7 +31,18 @@ exports.findAll = (req, res) => {
 
 // Find a single Assignment with an id
 exports.findOne = (req, res) => {
-  
+  Assignment.findAll({
+    where: {
+      userId: req.params.userId,
+      moduleNum: req.params.moduleNum
+    }
+  })
+  .then(assignment => {
+    res.status(200).send(assignment);
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
 };
 
 // Update an Assignment by the id in the request

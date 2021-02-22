@@ -5,11 +5,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-submit-module-one',
-  templateUrl: './submit-module-one.component.html',
-  styleUrls: ['./submit-module-one.component.css']
+  selector: 'app-submit-module-four',
+  templateUrl: './submit-module-four.component.html',
+  styleUrls: ['./submit-module-four.component.css']
 })
-export class SubmitModuleOneComponent implements OnInit {
+export class SubmitModuleFourComponent implements OnInit {
   currentUser: any;
   submitAssignmentForm: FormGroup;
   updateMode = false;
@@ -27,13 +27,13 @@ export class SubmitModuleOneComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this.token.getUser();
     this.submitAssignmentForm = this.formBuilder.group({
-      name: "Module 1 Assignment",
-      moduleNum: 1,
+      name: "Module 4 Assignment",
+      moduleNum: 4,
       link: [''],
       userId: this.currentUser.id
     });
 
-    this.assignmentService.get(this.currentUser.id, 1)
+    this.assignmentService.get(this.currentUser.id, 4)
     .subscribe(
       data => {
         if (data[0]) {
