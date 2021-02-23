@@ -1,66 +1,66 @@
 const db = require("../models");
-const Reply = db.reply;
+const Comment = db.comment;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Reply
+// Create and Save a new comment
 exports.create = (req, res) => {
-  Reply.create({
+  Comment.create({
     assignmentId: req.body.assignmentId,
     userId: req.body.userId,
     content: req.body.content
   })
   .then(() => {
-    res.send({ message: "Reply was added successfully!" });
+    res.send({ message: "Comment was added successfully!" });
   })
   .catch(err => {
     res.status(500).send({ message: err.message });
   })
 };
 
-// Retrieve all Replies from the database.
+// Retrieve all Comments from the database.
 exports.findAll = (req, res) => {
-  Reply.findAll()
-    .then(replies => {
-      res.status(200).send(replies);
+  Comment.findAll()
+    .then(comments => {
+      res.status(200).send(comments);
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
     });
 };
 
-// Find a single Reply with an id
+// Find a single Comment with an id
 exports.findOne = (req, res) => {
   
 };
 
-// Update a Reply by the id in the request
+// Update a Comment by the id in the request
 exports.update = (req, res) => {
-  Reply.update({ content: req.body.content }, { where: { id: req.params.id }
+  Comment.update({ content: req.body.content }, { where: { id: req.params.id }
   })
   .then(() => {
-    res.send({ message: "Reply updated successfully!" });
+    res.send({ message: "Comment updated successfully!" });
   })
     .catch(err => {
       res.status(500).send({ message: err.message });
     })
   };
 
-// Delete a Reply with the specified id in the request
+// Delete a Comment with the specified id in the request
 exports.delete = (req, res) => {
-  Reply.destroy({
+  Comment.destroy({
     where: {
       id: req.params.id
     }
   })
   .then(() => {
-    res.send({ message: "Reply was deleted successfully!" });
+    res.send({ message: "Comment was deleted successfully!" });
   })
     .catch(err => {
       res.status(500).send({ message: err.message });
     })
   };
 
-// Delete all Replies from the database.
+// Delete all Comments from the database.
 exports.deleteAll = (req, res) => {
   
 };

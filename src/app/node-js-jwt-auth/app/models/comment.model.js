@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Reply = sequelize.define("replys", {
+    const Comment = sequelize.define("comments", {
         assignmentId: {
             type: Sequelize.INTEGER
         },
@@ -11,5 +11,5 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
 
-    return Reply;
+    return Comment;
 };

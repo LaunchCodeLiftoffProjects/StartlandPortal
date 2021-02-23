@@ -23,13 +23,7 @@ import { AuthGuard } from './_helpers/auth.guard'
 
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
-<<<<<<< HEAD
-import { AssignmentReplyComponent } from './assignment-reply/assignment-reply.component';
 import { SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
-=======
-
-import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
->>>>>>> finalize-forum
 import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
 import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component';
 import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component';
@@ -46,7 +40,6 @@ import { AssignmentCommentsComponent } from './assignment-comments/assignment-co
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
-    AssignmentReplyComponent,
     SubmitModuleOneComponent,
     SubmitModuleTwoComponent,
     SubmitModuleThreeComponent,
@@ -72,4 +65,3 @@ import { AssignmentCommentsComponent } from './assignment-comments/assignment-co
 bootstrap: [AppComponent]
 })
 export class AppModule { }
- 

@@ -1,4 +1,4 @@
-const controller = require("../controllers/reply.controller");
+const controller = require("../controllers/comments.controller");
 
 module.exports = function(app) {
     app.use(function(req, res, next) {
@@ -9,12 +9,12 @@ module.exports = function(app) {
         next();
     });
 
-    app.post("/api/reply/create", controller.create);
+    app.post("/api/comments/create", controller.create);
 
-    app.get("/api/reply/getAll", controller.findAll);
+    app.get("/api/comments/getAll", controller.findAll);
 
-    app.delete(`/api/reply/:id?`, controller.delete);
+    app.delete(`/api/comments/:id?`, controller.delete);
 
-    app.put(`/api/reply/:id?`, controller.update);
+    app.put(`/api/comments/:id?`, controller.update);
 
 };

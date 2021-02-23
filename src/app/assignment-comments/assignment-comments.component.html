@@ -1,1 +1,36 @@
 <a href="http://{{assignment.link}}">{{assignment.link}}</a>
+
+
+<div class="assignment-comment">
+    <div class="assignment-comment-form">
+           <form [formGroup]="assignmentCommentForm" (ngSubmit)="onFormSubmit()" *ngIf="submitted === false">
+   
+               <div class="form-group" >
+                   <input type="text" formControlName="link" size=40 maxlength=150> 
+               </div>
+   
+               <button>Comment</button>
+           
+           </form>
+               
+           <div *ngIf="submitted === true">
+               
+               <p>Comment has been submitted!</p>
+                   
+               <button (click)='updateComment()'>Update Comment</button>
+                   
+               <button (click)='deleteComment()'>Delete Comment</button>
+   
+               <p class='updateMessage'>{{updateMessage}}</p>
+                   
+               <div *ngIf="updateMode === true">
+                   <label>Revised Comment: </label><br>
+                   <input type="text" #newComment size=40 maxlength=150/><br>
+                   <button (click)='submitComment(newComment.value)'>Submit</button>
+               </div>
+           
+           </div>
+       
+       </div>
+   
+   </div>

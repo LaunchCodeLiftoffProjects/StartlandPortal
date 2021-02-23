@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AssignmentService } from '../_services/assignment.service';
+import { CommentsService } from '../_services/comments.service';
 
 
 @Component({
@@ -12,10 +14,15 @@ export class AssignmentCommentsComponent implements OnInit {
   assignmentId: any;
   assignment: any;
   assignments: any;
+  commentsForm: FormGroup;
+  submitted = false;
+  updateMode = false;
 
   constructor(
     private router: ActivatedRoute, 
-    private assignmentService: AssignmentService
+    private assignmentService: AssignmentService,
+    private commentsService: CommentsService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -50,5 +57,48 @@ export class AssignmentCommentsComponent implements OnInit {
     // );
 
   }
+
+  onFormSubmit(){
+    this.commentsService.create(this.commentsForm.value)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.submitted = true;
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  deleteComment(comment: any){
+    this.commentsService.delete(comment.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+
+  updateComment(){
+    this.updateMode = true;
+  }
+
+  submitNewComment(comment: any, newContent: string){
+    this.commentsService.update(comment.id, newContent)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.updateMode = false;
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        });
+      }
 
 }

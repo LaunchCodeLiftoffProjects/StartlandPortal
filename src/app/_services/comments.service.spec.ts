@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ReplyService } from './reply.service';
+import { CommentsService } from './comments.service';
 
-describe('ReplyService', () => {
+describe('CommentsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ReplyService = TestBed.get(ReplyService);
+    const service: CommentsService = TestBed.get(CommentsService);
     expect(service).toBeTruthy();
   });
 });
