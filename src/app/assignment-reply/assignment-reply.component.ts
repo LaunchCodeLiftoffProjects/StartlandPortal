@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ReplyService } from '../_services/reply.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AssignmentService } from '../_services/assignment.service';
 
 @Component({
   selector: 'app-assignment-reply',
@@ -23,7 +24,7 @@ export class AssignmentReplyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currentAssignment = this.assignment.getAssignment();
+    this.currentAssignment = this.assignment.get(this.currentUser.id, moduleNum);
     this.replyForm = this.formBuilder.group({
       assignmentId: this.currentAssignment.id,
       userId: this.currentUser.id,
