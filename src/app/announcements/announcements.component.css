@@ -1,5 +1,13 @@
 .announcements {
-  font: montserrat;
-  color: #1C355E;
-  background-color: #0F9FCE;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.announcementsHeader {
+  text-align: center;
+}
+
+.addAnnouncement, .updateAnnouncement {
+  text-align: center;
 }

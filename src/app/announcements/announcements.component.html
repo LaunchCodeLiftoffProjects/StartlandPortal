@@ -1,7 +1,29 @@
 <div class="announcements">
-  <h1>Internship Announcements</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <hr>
-  <h3>Test</h3>
-  <p>Lorem ipsum...</p>
+  <div>
+    <h1 class="announcementsHeader">Internship Announcements</h1>
+    <div *ngFor ="let announcement of announcements">
+      <p>{{announcement.content}}</p>
+      <div *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
+        <button (click)='deleteAnnouncement(announcement)'>Delete</button><br>
+        <div *ngIf="updateMode === true" class="updateAnnouncement">
+          <label>Update announcement: </label><br>
+          <textarea #newAnnouncement></textarea><br>
+          <button (click)='submitNewAnnouncement(announcement, newAnnouncement.value)'>Submit</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 </div>
+<div class="announcements">
+  <form [formGroup]="announcementForm" (ngSubmit)="onFormSubmit()" class="addAnnouncement" *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
+    <div class="form-group">
+      <label>Add announcement: </label><br>
+      <textarea formControlName="content" class="form-control"></textarea><br>
+      <button>Add</button>
+    </div>
+  </form>
+  <button (click)='updateAnnouncement()' *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">Update</button>
+</div>
+
+

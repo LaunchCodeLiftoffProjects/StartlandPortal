@@ -16,6 +16,7 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { ForumComponent } from './forum/forum.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './_helpers/auth.guard'
@@ -23,6 +24,12 @@ import { AuthGuard } from './_helpers/auth.guard'
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
 
+import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
+import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
+import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component';
+import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component';
+import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component';
+import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +38,14 @@ import { UserService } from './_services/user.service';
     CourseSummaryComponent,
     LogInComponent,
     UserRegistrationComponent,
-    HomeComponent
+    ForumComponent,
+    HomeComponent,
+    SubmitModuleOneComponent,
+    SubmitModuleTwoComponent,
+    SubmitModuleThreeComponent,
+    SubmitModuleFourComponent,
+    SubmitModuleFiveComponent,
+    AssignmentCommentsComponent
   ],
   imports: [
     BrowserModule,
