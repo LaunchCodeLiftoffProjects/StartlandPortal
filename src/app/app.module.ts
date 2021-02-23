@@ -23,9 +23,12 @@ import { AuthGuard } from './_helpers/auth.guard'
 
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
-import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
-import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
 import { AssignmentReplyComponent } from './assignment-reply/assignment-reply.component';
+import { SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
+import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
+import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component';
+import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component';
+import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component'
 
 
 @NgModule({
@@ -37,9 +40,12 @@ import { AssignmentReplyComponent } from './assignment-reply/assignment-reply.co
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
-    StartDiscussionComponent,
-    DiscussionPostComponent,
-    AssignmentReplyComponent
+    AssignmentReplyComponent,
+    SubmitModuleOneComponent,
+    SubmitModuleTwoComponent,
+    SubmitModuleThreeComponent,
+    SubmitModuleFourComponent,
+    SubmitModuleFiveComponent
   ],
   imports: [
     BrowserModule,
