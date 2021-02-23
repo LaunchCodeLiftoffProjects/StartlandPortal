@@ -25,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
 import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
 import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
+import { Assignment1SubmissionComponent } from './assignment1-submission/assignment1-submission.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
     ForumComponent,
     HomeComponent,
     StartDiscussionComponent,
-    DiscussionPostComponent
+    DiscussionPostComponent,
+    Assignment1SubmissionComponent
   ],
   imports: [
     BrowserModule,
