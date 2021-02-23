@@ -41,6 +41,7 @@ import { AssignmentCommentsComponent } from './assignment-comments/assignment-co
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
+    Assignment1SubmissionComponent,
     SubmitModuleOneComponent,
     SubmitModuleTwoComponent,
     SubmitModuleThreeComponent,
