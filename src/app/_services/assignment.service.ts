@@ -21,12 +21,12 @@ export class AssignmentService {
     return this.http.get(baseUrl + 'getAll');
   }
 
-  get(userId, moduleNum) {
-    return this.http.get(baseUrl + `${userId}/` + `${moduleNum}`);
-  }
-
   getSelectedAssignment(id) {
     return this.http.get(baseUrl + `${id}`);
+  }
+
+  get(userId, moduleNum) {
+    return this.http.get(baseUrl + `${userId}/` + `${moduleNum}`);
   }
 
   create(data): Observable<any> {

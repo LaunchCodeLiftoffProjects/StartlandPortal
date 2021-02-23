@@ -49,7 +49,8 @@
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
                         <div *ngIf="assignment.moduleNum === 1" class="row forumPad">
                             <td>
-                                <a (click)='viewThisAssignment(assignment.id)'>{{assignment.name}}</a>
+                                <!-- <a (click)='viewThisAssignment(assignment.id)'>{{assignment.name}}</a> -->
+                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                             </td>
                             <div *ngFor ="let user of users">
                                 <div *ngIf="user.id === assignment.userId">

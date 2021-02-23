@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'submit-module-three', component: SubmitModuleThreeComponent },
   { path: 'submit-module-four', component: SubmitModuleFourComponent },
   { path: 'submit-module-five', component: SubmitModuleFiveComponent },
-  { path: 'assignment-comments/:id?', component: AssignmentCommentsComponent },
+  { path: 'assignment-comments/:id', component: AssignmentCommentsComponent },
 
   // This path goes LAST
   { path: '**', redirectTo: '' }
