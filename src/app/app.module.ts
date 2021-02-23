@@ -23,7 +23,6 @@ import { AuthGuard } from './_helpers/auth.guard'
 
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
-import { Assignment1SubmissionComponent } from './assignment1-submission/assignment1-submission.component';
 
 import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
 import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
@@ -41,7 +40,6 @@ import { AssignmentCommentsComponent } from './assignment-comments/assignment-co
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
-    Assignment1SubmissionComponent,
     SubmitModuleOneComponent,
     SubmitModuleTwoComponent,
     SubmitModuleThreeComponent,

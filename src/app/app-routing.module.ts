@@ -5,7 +5,6 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { ForumComponent } from './forum/forum.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
-import { Assignment1SubmissionComponent} from './assignment1-submission/assignment1-submission.component';
 import { SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
 import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
 import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component';
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: '', component: LogInComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'submit/assignment1', component: Assignment1SubmissionComponent },
   { path: 'submit-module-one', component: SubmitModuleOneComponent },
   { path: 'submit-module-two', component: SubmitModuleTwoComponent },
   { path: 'submit-module-three', component: SubmitModuleThreeComponent },
