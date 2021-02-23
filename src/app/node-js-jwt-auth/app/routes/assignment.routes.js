@@ -17,6 +17,10 @@ module.exports = function(app) {
 
     app.put(`/api/assignment/:id?`, controller.update);
 
+    app.get(`/api/assignment/:id?`, controller.findSelectedAssignment);
+
     app.get(`/api/assignment/:userId?/:moduleNum?`, controller.findOne);
+
+    
 
 };

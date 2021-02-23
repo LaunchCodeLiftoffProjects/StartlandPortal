@@ -27,7 +27,7 @@ export class SubmitModuleFiveComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this.token.getUser();
     this.submitAssignmentForm = this.formBuilder.group({
-      name: "Module 5 Assignment",
+      name: this.currentUser.username + "'s Assignment",
       moduleNum: 5,
       link: [''],
       userId: this.currentUser.id

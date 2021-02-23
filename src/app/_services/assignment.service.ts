@@ -21,6 +21,10 @@ export class AssignmentService {
     return this.http.get(baseUrl + 'getAll');
   }
 
+  getSelectedAssignment(id) {
+    return this.http.get(baseUrl + `${id}`);
+  }
+
   get(userId, moduleNum) {
     return this.http.get(baseUrl + `${userId}/` + `${moduleNum}`);
   }
