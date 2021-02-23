@@ -27,7 +27,8 @@ import {SubmitModuleOneComponent } from './submit-module-one/submit-module-one.c
 import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
 import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component';
 import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component';
-import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component'
+import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component';
+import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-fi
     SubmitModuleTwoComponent,
     SubmitModuleThreeComponent,
     SubmitModuleFourComponent,
-    SubmitModuleFiveComponent
+    SubmitModuleFiveComponent,
+    AssignmentCommentsComponent
   ],
   imports: [
     BrowserModule,

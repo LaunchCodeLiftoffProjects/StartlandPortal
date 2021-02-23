@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AssignmentService } from '../_services/assignment.service';
 import { UserService } from '../_services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forum',
@@ -10,10 +11,12 @@ import { UserService } from '../_services/user.service';
 export class ForumComponent implements OnInit {
   assignments: any;
   users: any;
+  viewAssignmentId: any;
 
   constructor(
     private assignmentService: AssignmentService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,6 +39,10 @@ export class ForumComponent implements OnInit {
         this.users = JSON.parse(err.error).message;
       }
     );
+  }
+
+  viewThisAssignment(assignmentId: number){
+    this.router.navigate(['/assignment-comments', assignmentId]);
   }
 
 }

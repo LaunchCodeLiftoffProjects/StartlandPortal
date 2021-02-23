@@ -19,4 +19,6 @@ module.exports = function(app) {
 
     app.get(`/api/assignment/:userId?/:moduleNum?`, controller.findOne);
 
+    app.get(`/api/assignment/:id?`, controller.findSelectedAssignment);
+
 };

@@ -5,11 +5,12 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { ForumComponent } from './forum/forum.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
-import { SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component'
-import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component'
-import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component'
-import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component'
-import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component'
+import { SubmitModuleOneComponent } from './submit-module-one/submit-module-one.component';
+import { SubmitModuleTwoComponent } from './submit-module-two/submit-module-two.component';
+import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-three.component';
+import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component';
+import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component';
+import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'submit-module-three', component: SubmitModuleThreeComponent },
   { path: 'submit-module-four', component: SubmitModuleFourComponent },
   { path: 'submit-module-five', component: SubmitModuleFiveComponent },
+  { path: 'assignment-comments/:id?', component: AssignmentCommentsComponent },
   { path: '**', redirectTo: '' }
 ];
 

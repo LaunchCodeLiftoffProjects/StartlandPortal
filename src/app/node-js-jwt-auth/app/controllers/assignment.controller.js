@@ -29,7 +29,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single Assignment with an id
+// Find a single Assignment with an user Id and Module Number
 exports.findOne = (req, res) => {
   Assignment.findAll({
     where: {
@@ -37,6 +37,17 @@ exports.findOne = (req, res) => {
       moduleNum: req.params.moduleNum
     }
   })
+  .then(assignment => {
+    res.status(200).send(assignment);
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+};
+
+// Find a single Assignment with an assignment id
+exports.findSelectedAssignment = (req, res) => {
+  Assignment.findOne({ where: {id: req.params.id }})
   .then(assignment => {
     res.status(200).send(assignment);
   })

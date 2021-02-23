@@ -25,6 +25,10 @@ export class AssignmentService {
     return this.http.get(baseUrl + `${userId}/` + `${moduleNum}`);
   }
 
+  getSelectedAssignment(id) {
+    return this.http.get(baseUrl + `${id}`);
+  }
+
   create(data): Observable<any> {
     return this.http.post(baseUrl + 'create', {
       name: data.name,
