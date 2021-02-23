@@ -73,7 +73,6 @@ export class AnnouncementsComponent implements OnInit {
       }
 
       submitNewAnnouncement(announcement: any, newContent: string){
-        console.log(newContent);
         this.announcementService.update(announcement.id, newContent)
           .subscribe(
             response => {

@@ -26,7 +26,7 @@
                             <h1>Module 1: NAME</h1> 
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="submit/assignment1">Submit Assignment</a>
+                            <a class="btn btn-primary themeButton" href="/submit-module-one">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -36,7 +36,7 @@
                 <table class="forumTable">
                     <thead>
                         <th>
-                            Discussion
+                            Assignment
                         </th>
                         <th>
                             Author
@@ -46,40 +46,35 @@
                         </th>
                     </thead>
 
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
-                    </tr>
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
+                    <tr class="forumModule" *ngFor ="let assignment of assignments">
+                        <div *ngIf="assignment.moduleNum === 1" class="row forumPad">
+                            <td>
+                                <a (click)='viewThisAssignment(assignment.id)'>{{assignment.name}}</a>
+                            </td>
+                            <div *ngFor ="let user of users">
+                                <div *ngIf="user.id === assignment.userId">
+                                    <td>
+                                        <a href="#">{{user.username}}</a>
+                                    </td>
+                                </div>
+                            </div>
+                            <td class="pullRight">
+                                15
+                            </td>
+                        </div>
                     </tr>
                     
                 </table>
             </div>
-            
+
             <div id="module2" class="row forumModule forumMargin">
-                <!--<a href="#" onclick="showDiscussions(1);">-->
+                <!--<a href="#" onclick="showDiscussions(2);">-->
                     <div class="col-lg-12 columnPad">
                         <div class="pullLeft">
                             <h1>Module 2: NAME</h1> 
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="#">Start Discussion</a>
+                            <a class="btn btn-primary themeButton" href="/submit-module-two">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -89,7 +84,7 @@
                 <table class="forumTable">
                     <thead>
                         <th>
-                            Discussion
+                            Assignment
                         </th>
                         <th>
                             Author
@@ -99,40 +94,35 @@
                         </th>
                     </thead>
 
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
-                    </tr>
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
+                    <tr class="forumModule" *ngFor ="let assignment of assignments">
+                        <div *ngIf="assignment.moduleNum === 2" class="row forumPad">
+                            <td>
+                                <a href="#">{{assignment.name}}</a>
+                            </td>
+                            <div *ngFor ="let user of users">
+                                <div *ngIf="user.id === assignment.userId">
+                                    <td>
+                                        <a href="#">{{user.username}}</a>
+                                    </td>
+                                </div>
+                            </div>
+                            <td class="pullRight">
+                                15
+                            </td>
+                        </div>
                     </tr>
                     
                 </table>
             </div>
 
             <div id="module3" class="row forumModule forumMargin">
-                <!--<a href="#" onclick="showDiscussions(1);">-->
+                <!--<a href="#" onclick="showDiscussions(3);">-->
                     <div class="col-lg-12 columnPad">
                         <div class="pullLeft">
                             <h1>Module 3: NAME</h1> 
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="#">Start Discussion</a>
+                            <a class="btn btn-primary themeButton" href="/submit-module-three">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -142,7 +132,7 @@
                 <table class="forumTable">
                     <thead>
                         <th>
-                            Discussion
+                            Assignment
                         </th>
                         <th>
                             Author
@@ -152,32 +142,123 @@
                         </th>
                     </thead>
 
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
-                    </tr>
-                    <tr class="forumModule">
-                        <td>
-                            <a href="#">Discussion name here</a>
-                        </td>
-                        <td>
-                            <a href="#">User</a>
-                        </td>
-                        <td class="pullRight">
-                            15
-                        </td>
+                    <tr class="forumModule" *ngFor ="let assignment of assignments">
+                        <div *ngIf="assignment.moduleNum === 3" class="row forumPad">
+                            <td>
+                                <a href="#">{{assignment.name}}</a>
+                            </td>
+                            <div *ngFor ="let user of users">
+                                <div *ngIf="user.id === assignment.userId">
+                                    <td>
+                                        <a href="#">{{user.username}}</a>
+                                    </td>
+                                </div>
+                            </div>
+                            <td class="pullRight">
+                                15
+                            </td>
+                        </div>
                     </tr>
                     
                 </table>
             </div>
 
+            <div id="module4" class="row forumModule forumMargin">
+                <!--<a href="#" onclick="showDiscussions(4);">-->
+                    <div class="col-lg-12 columnPad">
+                        <div class="pullLeft">
+                            <h1>Module 4: NAME</h1> 
+                        </div>
+                        <div class="pullRight">
+                            <a class="btn btn-primary themeButton" href="/submit-module-four">Submit Assignment</a>
+                        </div>
+                    </div>
+                <!--</a>-->
+            </div>
+
+            <div id="moduleDiscussions4" class="row forumPad" style="display:block;">
+                <table class="forumTable">
+                    <thead>
+                        <th>
+                            Assignment
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th class="pullRight">
+                            Replies
+                        </th>
+                    </thead>
+
+                    <tr class="forumModule" *ngFor ="let assignment of assignments">
+                        <div *ngIf="assignment.moduleNum === 4" class="row forumPad">
+                            <td>
+                                <a href="#">{{assignment.name}}</a>
+                            </td>
+                            <div *ngFor ="let user of users">
+                                <div *ngIf="user.id === assignment.userId">
+                                    <td>
+                                        <a href="#">{{user.username}}</a>
+                                    </td>
+                                </div>
+                            </div>
+                            <td class="pullRight">
+                                15
+                            </td>
+                        </div>
+                    </tr>
+                    
+                </table>
+            </div>
+
+            <div id="module5" class="row forumModule forumMargin">
+                <!--<a href="#" onclick="showDiscussions(5);">-->
+                    <div class="col-lg-12 columnPad">
+                        <div class="pullLeft">
+                            <h1>Module 5: NAME</h1> 
+                        </div>
+                        <div class="pullRight">
+                            <a class="btn btn-primary themeButton" href="/submit-module-five">Submit Assignment</a>
+                        </div>
+                    </div>
+                <!--</a>-->
+            </div>
+
+            <div id="moduleDiscussions5" class="row forumPad" style="display:block;">
+                <table class="forumTable">
+                    <thead>
+                        <th>
+                            Assignment
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th class="pullRight">
+                            Replies
+                        </th>
+                    </thead>
+
+                    <tr class="forumModule" *ngFor ="let assignment of assignments">
+                        <div *ngIf="assignment.moduleNum === 5" class="row forumPad">
+                            <td>
+                                <a href="#">{{assignment.name}}</a>
+                            </td>
+                            <div *ngFor ="let user of users">
+                                <div *ngIf="user.id === assignment.userId">
+                                    <td>
+                                        <a href="#">{{user.username}}</a>
+                                    </td>
+                                </div>
+                            </div>
+                            <td class="pullRight">
+                                15
+                            </td>
+                        </div>
+                    </tr>
+                    
+                </table>
+            </div>
+            
         </div>
     
     </body>
