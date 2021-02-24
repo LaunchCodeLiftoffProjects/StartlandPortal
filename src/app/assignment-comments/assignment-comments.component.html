@@ -1,12 +1,44 @@
 <a href="http://{{assignment.link}}">{{assignment.link}}</a>
 
 
+<h1 class="commentsHeader">Comments</h1>
+
+<div>
+    <table class="commentsTable">
+        <thead>
+            <th>
+                Comment
+            </th>
+            <th>
+                User
+            </th>
+        </thead>
+
+        <tr class="individualComment" *ngFor ="let comment of comments">
+            <div *ngIf="comment.assignmentId === assignment.id">
+                <td>
+                    <p>{{comment.content}}</p>
+                </td>
+                <div *ngFor ="let user of users">
+                    <div *ngIf="user.id === comment.userId">
+                        <td>
+                            <p>{{user.username}}</p>
+                        </td>
+                    </div>
+                </div>
+            </div>
+        </tr>
+            
+    </table>
+</div>
+
+
 <div class="assignment-comment">
     <div class="assignment-comment-form">
            <form [formGroup]="commentsForm" (ngSubmit)="onFormSubmit()">
    
                <div class="form-group" >
-                   <input formControlName="comment" type="text" size=40 maxlength=150> 
+                   <input formControlName="content" type="text" size=40 maxlength=150> 
                </div>
    
                <button>Comment</button>

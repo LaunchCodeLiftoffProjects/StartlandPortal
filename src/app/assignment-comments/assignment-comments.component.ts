@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AssignmentService } from '../_services/assignment.service';
 import { CommentsService } from '../_services/comments.service';
 import { TokenStorageService } from '../_services/token-storage.service'
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-assignment-comments',
@@ -18,12 +19,16 @@ export class AssignmentCommentsComponent implements OnInit {
   submitted = false;
   updateMode = false;
   currentUser: any;
+  updateMessage = '';
+  comments: any;
+  users: any;
 
   constructor(
     private router: ActivatedRoute, 
     private assignmentService: AssignmentService,
     private commentsService: CommentsService,
     private formBuilder: FormBuilder,
+    private userService: UserService,
     private token: TokenStorageService
   ) { }
 
@@ -68,8 +73,28 @@ export class AssignmentCommentsComponent implements OnInit {
     this.commentsForm = this.formBuilder.group({
       assignmentId: this.assignmentId,
       userId: this.currentUser.id,
-      comment: ['']
+      content: ['']
     });
+
+    this.commentsService.getAll()
+    .subscribe(
+      data => {
+        this.comments = data;
+      },
+      err => {
+        this.comments = JSON.parse(err.error).message;
+      }
+    );
+
+    this.userService.getAll()
+    .subscribe(
+      data => {
+        this.users = data;
+      },
+      err => {
+        this.users = JSON.parse(err.error).message;
+      }
+    );
 
   }
 
@@ -79,24 +104,12 @@ export class AssignmentCommentsComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
-          window.location.reload();
+          // window.location.reload();
+          this.reloadPage("Comment was added successfully!")
         },
         error => {
           console.log(error);
         });
-  }
-
-  deleteComment(comment: any){
-    this.commentsService.delete(comment.id)
-      .subscribe(
-        response => {
-          console.log(response);
-          window.location.reload();
-        },
-        error => {
-          console.log(error);
-        }
-      )
   }
 
   updateComment(){
@@ -114,6 +127,28 @@ export class AssignmentCommentsComponent implements OnInit {
         error => {
           console.log(error);
         });
+      }
+
+
+  deleteComment(comment: any){
+    this.commentsService.delete(comment.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+
+
+
+
+      reloadPage(message: string) {
+        window.location.reload();
+        this.updateMessage = message;
       }
 
 }

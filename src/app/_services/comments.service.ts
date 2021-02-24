@@ -29,7 +29,7 @@ export class CommentsService {
     return this.http.post(baseUrl + 'create', {
       assignmentId: data.assignmentId,
       userId: data.userId,
-      content: data.comment
+      content: data.content
     }, httpOptions);
   }
 

@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   Comment.create({
     assignmentId: req.body.assignmentId,
     userId: req.body.userId,
-    content: req.body.comment
+    content: req.body.content
   })
   .then(() => {
     res.send({ message: "Comment was added successfully!" });
