@@ -16,7 +16,7 @@ export class ForumComponent implements OnInit {
   constructor(
     private assignmentService: AssignmentService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -40,9 +40,4 @@ export class ForumComponent implements OnInit {
       }
     );
   }
-
-  viewThisAssignment(assignmentId: number){
-    this.router.navigate(['/assignment-comments', assignmentId]);
-  }
-
 }

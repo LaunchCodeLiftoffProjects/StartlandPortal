@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { ActivatedRoute } from '@angular/router';
 import { AssignmentService } from '../_services/assignment.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-submit-module-five',
-  templateUrl: './submit-module-five.component.html',
-  styleUrls: ['./submit-module-five.component.css']
+  selector: 'app-submit-assignment',
+  templateUrl: './submit-assignment.component.html',
+  styleUrls: ['./submit-assignment.component.css']
 })
-export class SubmitModuleFiveComponent implements OnInit {
+export class SubmitAssignmentComponent implements OnInit {
+  moduleNumber: any;
   currentUser: any;
   submitAssignmentForm: FormGroup;
   updateMode = false;
@@ -18,22 +19,25 @@ export class SubmitModuleFiveComponent implements OnInit {
   updateMessage = '';
 
   constructor(
+    private router: ActivatedRoute,
     private token: TokenStorageService,
     private assignmentService: AssignmentService,
-    private formBuilder: FormBuilder,
-    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
+    
+    this.router.paramMap.subscribe( params => { this.moduleNumber = params.get('moduleNum') });
+    
     this.submitAssignmentForm = this.formBuilder.group({
-      name: this.currentUser.username + "'s Assignment",
-      moduleNum: 5,
+      name: this.currentUser.firstName + "'s Assignment",
+      moduleNum: this.moduleNumber,
       link: [''],
       userId: this.currentUser.id
     });
 
-    this.assignmentService.get(this.currentUser.id, 5)
+    this.assignmentService.get(this.currentUser.id, this.moduleNumber)
     .subscribe(
       data => {
         if (data[0]) {
@@ -96,5 +100,6 @@ export class SubmitModuleFiveComponent implements OnInit {
             window.location.reload();
             this.updateMessage = message;
           }
+
 
 }

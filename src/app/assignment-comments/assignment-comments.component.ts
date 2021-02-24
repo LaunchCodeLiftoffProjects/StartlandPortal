@@ -43,6 +43,7 @@ export class AssignmentCommentsComponent implements OnInit {
           }
         );
     })
+<<<<<<< HEAD
 
     this.router.paramMap.subscribe( params => {this.assignmentId = params.get('id')});
 
@@ -97,6 +98,8 @@ export class AssignmentCommentsComponent implements OnInit {
           console.log(error);
         }
       )
+=======
+>>>>>>> finalize-forum
   }
 
   updateComment(){
