@@ -8,49 +8,12 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="assets/images/SLO-icon-clr_SLO-icon-clr-300x300 (1).png">
+
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<div *ngIf="isLoggedIn" class="topnav" id="myTopnav"></div>
-  <a href="/home" class="active">Home</a>
-  <div class="dropdown">
-    <button class="dropbtn">Modules
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="/module1">Modules 1</a>
-      <a href="/module2">Modules 2</a>
-      <a href="/module3">Modules 3</a>
-    </div>
-  <a href="/forums">Forums</a>
-  <div class="topnav-right">
-  <button class="dropbtn">{{ currentUser.username }}
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-content">
-    <a href="/user-profile">Profile</a>
-    <a href (click)="logout()">Logout</a>
-  </div>
+<div>
+  <app-navbar></app-navbar>
 </div>
-  
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-    
-  </a>
-  </div>
-</div>
-
-
-<script>
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
-  </script>
 <body>
   <app-root></app-root>
 </body>

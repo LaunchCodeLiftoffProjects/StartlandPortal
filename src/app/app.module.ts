@@ -8,13 +8,13 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserProfileComponent} from './user-profile/user-profile.component'
+
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
-
+import { UserProfileComponent} from './user-profile/user-profile.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { ForumComponent } from './forum/forum.component';
 import { HomeComponent } from './home/home.component';
@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
 import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
 import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -31,12 +32,14 @@ import { DiscussionPostComponent } from './discussion-post/discussion-post.compo
     AppComponent,
     AnnouncementsComponent,
     CourseSummaryComponent,
+    UserProfileComponent,
     LogInComponent,
     UserRegistrationComponent,
     ForumComponent,
     HomeComponent,
     StartDiscussionComponent,
-    DiscussionPostComponent
+    DiscussionPostComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
