@@ -32,23 +32,6 @@ export class AssignmentCommentsComponent implements OnInit {
           }
         );
     })
-
-    // ORIGINAL VERSION. HAVEN'T TESTED - feel free to try it with this one instead!
-    // this.assignmentId = Number(this.router.snapshot.paramMap.get("id?"));
-
-    // console.log(typeof(this.assignmentId));
-
-    // this.assignmentService.getSelectedAssignment(this.assignmentId)
-    // .subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.assignment = data;
-    //   },
-    //   err => {
-    //     this.assignment = JSON.parse(err.error).message;
-    //   }
-    // );
-
   }
 
 }
