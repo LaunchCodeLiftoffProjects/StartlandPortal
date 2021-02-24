@@ -98,8 +98,6 @@ export class AssignmentCommentsComponent implements OnInit {
           console.log(error);
         }
       )
-=======
->>>>>>> finalize-forum
   }
 
   updateComment(){
