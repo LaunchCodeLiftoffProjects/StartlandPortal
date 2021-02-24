@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AssignmentService } from '../_services/assignment.service';
 import { CommentsService } from '../_services/comments.service';
-
+import { TokenStorageService } from '../_services/token-storage.service'
 
 @Component({
   selector: 'app-assignment-comments',
@@ -17,15 +17,19 @@ export class AssignmentCommentsComponent implements OnInit {
   commentsForm: FormGroup;
   submitted = false;
   updateMode = false;
+  currentUser: any;
 
   constructor(
     private router: ActivatedRoute, 
     private assignmentService: AssignmentService,
     private commentsService: CommentsService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private token: TokenStorageService
   ) { }
 
   ngOnInit() {
+
+    this.currentUser = this.token.getUser();
 
     // I re-wrote the code here based on another version I found.
     this.router.paramMap.subscribe( params => {
@@ -39,6 +43,8 @@ export class AssignmentCommentsComponent implements OnInit {
           }
         );
     })
+
+    this.router.paramMap.subscribe( params => {this.assignmentId = params.get('id')});
 
     // ORIGINAL VERSION. HAVEN'T TESTED - feel free to try it with this one instead!
     // this.assignmentId = Number(this.router.snapshot.paramMap.get("id?"));
@@ -55,6 +61,15 @@ export class AssignmentCommentsComponent implements OnInit {
     //     this.assignment = JSON.parse(err.error).message;
     //   }
     // );
+
+      console.log(this.assignmentId);
+      console.log(this.currentUser);
+
+    this.commentsForm = this.formBuilder.group({
+      assignmentId: this.assignmentId,
+      userId: this.currentUser.id,
+      comment: ['']
+    });
 
   }
 
