@@ -43,7 +43,6 @@ export class AssignmentCommentsComponent implements OnInit {
           }
         );
     })
-<<<<<<< HEAD
 
     this.router.paramMap.subscribe( params => {this.assignmentId = params.get('id')});
 
