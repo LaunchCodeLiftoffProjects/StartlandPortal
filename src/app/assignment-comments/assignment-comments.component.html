@@ -18,14 +18,25 @@
             <div *ngIf="comment.assignmentId === assignment.id">
                 <td>
                     <p>{{comment.content}}</p>
-                </td>
-                <div *ngFor ="let user of users">
-                    <div *ngIf="user.id === comment.userId">
-                        <td>
-                            <p>{{user.username}}</p>
-                        </td>
+                    <div *ngIf="comment.userId === currentUser.id">
+                        <button (click)='deleteComment(comment)'>Delete</button>
+                        <button (click)='updateComment()'>Update</button>
+                        <div *ngIf="updateMode === true" class="updateComment">
+                          <label>Update Comment: </label><br>
+                          <textarea #newComment></textarea><br>
+                          <button (click)='submitNewComment(comment, newComment.value)'>Submit</button>
+                          <button (click)='cancelUpdateComment()'>Cancel</button>
+                        </div>
                     </div>
-                </div>
+                </td>
+                
+                    <div *ngFor ="let user of users">
+                        <div *ngIf="user.id === comment.userId">
+                            <td>
+                                <p>{{user.username}}</p>
+                            </td>
+                        </div>
+                    </div>
             </div>
         </tr>
             
@@ -36,33 +47,11 @@
 <div class="assignment-comment">
     <div class="assignment-comment-form">
            <form [formGroup]="commentsForm" (ngSubmit)="onFormSubmit()">
-   
                <div class="form-group" >
                    <input formControlName="content" type="text" size=40 maxlength=150> 
                </div>
-   
                <button>Comment</button>
-           
-           </form>
-               
-           <div *ngIf="submitted === true">
-               
-               <p>Comment has been submitted!</p>
-                   
-               <button (click)='updateComment()'>Update Comment</button>
-                   
-               <button (click)='deleteComment()'>Delete Comment</button>
+           </form>  
+    </div>
    
-               <p class='updateMessage'>{{updateMessage}}</p>
-                   
-               <div *ngIf="updateMode === true">
-                   <label>Revised Comment: </label><br>
-                   <input type="text" #newComment size=40 maxlength=150/><br>
-                   <button (click)='submitComment(newComment.value)'>Submit</button>
-               </div>
-           
-           </div>
-       
-       </div>
-   
-   </div>
+</div>

@@ -104,16 +104,33 @@ export class AssignmentCommentsComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
-          // window.location.reload();
-          this.reloadPage("Comment was added successfully!")
+          window.location.reload();
+          // this.reloadPage("Comment was added successfully!")
         },
         error => {
           console.log(error);
         });
   }
 
+  deleteComment(comment: any){
+    this.commentsService.delete(comment.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+
   updateComment(){
     this.updateMode = true;
+  }
+
+  cancelUpdateComment(){
+    this.updateMode = false;
   }
 
   submitNewComment(comment: any, newContent: string){
@@ -129,26 +146,9 @@ export class AssignmentCommentsComponent implements OnInit {
         });
       }
 
-
-  deleteComment(comment: any){
-    this.commentsService.delete(comment.id)
-      .subscribe(
-        response => {
-          console.log(response);
-          window.location.reload();
-        },
-        error => {
-          console.log(error);
-        }
-      )
-  }
-
-
-
-
-      reloadPage(message: string) {
-        window.location.reload();
-        this.updateMessage = message;
-      }
+      // reloadPage(message: string) {
+      //   window.location.reload();
+      //   this.updateMessage = message;
+      // }
 
 }
