@@ -11,19 +11,20 @@ import { SubmitModuleThreeComponent } from './submit-module-three/submit-module-
 import { SubmitModuleFourComponent } from './submit-module-four/submit-module-four.component';
 import { SubmitModuleFiveComponent } from './submit-module-five/submit-module-five.component';
 import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component';
+import { AuthenticationService } from './_services/authentication.service';
 
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
-  { path: 'forum', component: ForumComponent },
   { path: '', component: LogInComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'submit-module-one', component: SubmitModuleOneComponent },
-  { path: 'submit-module-two', component: SubmitModuleTwoComponent },
-  { path: 'submit-module-three', component: SubmitModuleThreeComponent },
-  { path: 'submit-module-four', component: SubmitModuleFourComponent },
-  { path: 'submit-module-five', component: SubmitModuleFiveComponent },
-  { path: 'assignment-comments/:id', component: AssignmentCommentsComponent },
+  { path: 'forum', component: ForumComponent, canActivate: [AuthenticationService] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthenticationService] },
+  { path: 'submit-module-one', component: SubmitModuleOneComponent, canActivate: [AuthenticationService] },
+  { path: 'submit-module-two', component: SubmitModuleTwoComponent, canActivate: [AuthenticationService] },
+  { path: 'submit-module-three', component: SubmitModuleThreeComponent, canActivate: [AuthenticationService] },
+  { path: 'submit-module-four', component: SubmitModuleFourComponent, canActivate: [AuthenticationService] },
+  { path: 'submit-module-five', component: SubmitModuleFiveComponent, canActivate: [AuthenticationService] },
+  { path: 'assignment-comments/:id', component: AssignmentCommentsComponent, canActivate: [AuthenticationService] },
 
   // This path goes LAST
   { path: '**', redirectTo: '' }
