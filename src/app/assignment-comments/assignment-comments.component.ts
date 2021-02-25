@@ -12,6 +12,7 @@ export class AssignmentCommentsComponent implements OnInit {
   assignmentId: any;
   assignment: any;
   submissionLink: string;
+  validLink = false;
 
   constructor(
     private router: ActivatedRoute, 
@@ -33,7 +34,6 @@ export class AssignmentCommentsComponent implements OnInit {
         );
     })
 
-    
 
   }
 
@@ -42,7 +42,7 @@ export class AssignmentCommentsComponent implements OnInit {
     const err: string = 'Not a valid link';
   
     if (!(link.length > 0)){
-      return(err);
+      this.submissionLink = err;
     }
   
     let checkLink: RegExpMatchArray = link.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
@@ -50,12 +50,22 @@ export class AssignmentCommentsComponent implements OnInit {
     if (checkLink !== null){
       if (link.includes('http://') || link.includes('http://www.')){
         this.submissionLink = link;
+      } 
+      else {
+        this.submissionLink = `http://${link}`;
       }
       
-      this.submissionLink = `http://${link}`;
     }
-  
-    return (err);
+    else{
+      this.submissionLink = err;
+    }
+    
+    if (this.submissionLink === err){
+      this.validLink = false;
+    }
+    if (this.submissionLink !== err){
+      this.validLink = true;
+    };
   }
 
 }

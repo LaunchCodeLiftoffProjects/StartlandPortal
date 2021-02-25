@@ -1,1 +1,8 @@
-<a href="{{submissionLink}}">{{submissionLink}}</a>
+<div *ngIf="validLink">
+    <a href="{{submissionLink}}">{{submissionLink}}</a>
+</div>
+
+<div *ngIf="!validLink">
+    <p>Sorry, this assignment link is not valid.</p>
+</div>
+
