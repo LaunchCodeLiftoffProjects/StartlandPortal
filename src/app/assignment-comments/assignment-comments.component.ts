@@ -15,6 +15,7 @@ export class AssignmentCommentsComponent implements OnInit {
   assignmentId: any;
   assignment: any;
   assignments: any;
+  assignmentLink: any;
   commentsForm: FormGroup;
   submitted = false;
   updateMode = false;
@@ -42,6 +43,7 @@ export class AssignmentCommentsComponent implements OnInit {
         .subscribe(
           data => {
             this.assignment = data;
+            this.assignmentLink = Object(data).link
           },
           err => {
             this.assignment = JSON.parse(err.error).message;
@@ -66,9 +68,6 @@ export class AssignmentCommentsComponent implements OnInit {
     //     this.assignment = JSON.parse(err.error).message;
     //   }
     // );
-
-      console.log(this.assignmentId);
-      console.log(this.currentUser);
 
     this.commentsForm = this.formBuilder.group({
       assignmentId: this.assignmentId,
