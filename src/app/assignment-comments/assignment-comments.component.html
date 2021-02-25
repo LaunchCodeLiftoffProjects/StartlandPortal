@@ -29,12 +29,13 @@
                         </div>
                     </div>
                 </td>
-                
+                <td>
                     <div *ngFor ="let user of users">
                         <div *ngIf="user.id === comment.userId">
                                 <p>{{user.username}}</p>
                         </div>
                     </div>
+                </td>
             </div>
         </tr>
             
