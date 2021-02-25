@@ -1,13 +1,15 @@
-<div>
-  <h3>Welcome, {{currentUser.firstName}}!</h3>
-</div>
+<div *ngIf="currentUser; else loggedOut">
+  <div>
+    <h3>Welcome, {{currentUser.firstName}}!</h3>
+  </div>
 
-<div class="announcements" *ngIf="currentUser; else loggedOut">
-  <app-announcements></app-announcements>
-</div>
+  <div class="announcements">
+    <app-announcements></app-announcements>
+  </div>
 
-<div>
-  <app-course-summary></app-course-summary>
+  <div>
+    <app-course-summary></app-course-summary>
+  </div>
 </div>
 
 <ng-template #loggedOut>
