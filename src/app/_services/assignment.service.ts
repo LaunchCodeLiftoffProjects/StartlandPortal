@@ -29,12 +29,12 @@ export class AssignmentService {
     return this.http.get(baseUrl + `${userId}/` + `${moduleNum}`);
   }
 
-  create(data): Observable<any> {
+  create(name, moduleNum, link, userId): Observable<any> {
     return this.http.post(baseUrl + 'create', {
-      name: data.name,
-      moduleNum: data.moduleNum,
-      link: data.link,
-      userId: data.userId
+      name: name,
+      moduleNum: moduleNum,
+      link: link,
+      userId: userId
     }, httpOptions);
   }
 

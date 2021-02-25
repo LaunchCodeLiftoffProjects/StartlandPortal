@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SubmitAssignmentComponent implements OnInit {
   moduleNumber: any;
   currentUser: any;
+  validLink: any;
   submitAssignmentForm: FormGroup;
   updateMode = false;
   submitted = false;
@@ -29,7 +30,7 @@ export class SubmitAssignmentComponent implements OnInit {
     this.currentUser = this.token.getUser();
     
     this.router.paramMap.subscribe( params => { this.moduleNumber = params.get('moduleNum') });
-    
+
     this.submitAssignmentForm = this.formBuilder.group({
       name: this.currentUser.firstName + "'s Assignment",
       moduleNum: this.moduleNumber,
@@ -55,7 +56,17 @@ export class SubmitAssignmentComponent implements OnInit {
   }
 
   onFormSubmit(){
-    this.assignmentService.create(this.submitAssignmentForm.value)
+    if ((this.submitAssignmentForm.value.link).slice(0,4) !== 'http'){
+      this.validLink = 'http://' + this.submitAssignmentForm.value.link;
+    } else {
+      this.validLink = this.submitAssignmentForm.value.link;
+    }
+
+    this.assignmentService.create(
+      this.submitAssignmentForm.value.name,
+      this.submitAssignmentForm.value.moduleNum,
+      this.validLink,
+      this.submitAssignmentForm.value.userId)
       .subscribe(
         response => {
           console.log(response);
@@ -71,7 +82,13 @@ export class SubmitAssignmentComponent implements OnInit {
       }
 
       submitNewAssignment(newLink: string){  
-        this.assignmentService.update(this.thisAssignmentId, newLink)
+        if ((newLink).slice(0,4) !== 'http'){
+          this.validLink = 'http://' + newLink;
+        } else {
+          this.validLink = newLink;
+        }
+
+        this.assignmentService.update(this.thisAssignmentId, this.validLink)
           .subscribe(
             response => {
               console.log(response);
