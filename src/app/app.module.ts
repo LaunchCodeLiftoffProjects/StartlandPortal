@@ -28,8 +28,10 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_helpers/auth.guard'
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
-import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
-import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
+
+import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component';
+import { SubmitAssignmentComponent } from './submit-assignment/submit-assignment.component'
+
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
@@ -48,8 +50,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     Module5Component,
     ForumComponent,
     HomeComponent,
-    StartDiscussionComponent,
-    DiscussionPostComponent,
+    AssignmentCommentsComponent,
+    SubmitAssignmentComponent,
     NavbarComponent
 
   ],
