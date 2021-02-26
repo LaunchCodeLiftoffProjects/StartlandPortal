@@ -32,8 +32,6 @@ import { UserService } from './_services/user.service';
 import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component';
 import { SubmitAssignmentComponent } from './submit-assignment/submit-assignment.component'
 
-import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
-import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
@@ -53,9 +51,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ForumComponent,
     HomeComponent,
     AssignmentCommentsComponent,
-    SubmitAssignmentComponent
-    StartDiscussionComponent,
-    DiscussionPostComponent,
+    SubmitAssignmentComponent,
     NavbarComponent
 
   ],

@@ -12,8 +12,6 @@ import { LogInComponent } from './log-in/log-in.component';
 import { HomeComponent } from './home/home.component';
 import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component';
 import { SubmitAssignmentComponent } from './submit-assignment/submit-assignment.component';
-import { StartDiscussionComponent } from './start-discussion/start-discussion.component';
-import { DiscussionPostComponent } from './discussion-post/discussion-post.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
@@ -30,8 +28,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'assignment-comments/:id', component: AssignmentCommentsComponent },
   { path: 'submit-assignment/:moduleNum', component: SubmitAssignmentComponent },
-  { path: 'start-discussion', component: StartDiscussionComponent },
-  { path: 'discussion-post', component: DiscussionPostComponent },
 
   // This path goes LAST
   { path: '**', redirectTo: '' }
