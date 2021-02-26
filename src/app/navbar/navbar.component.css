@@ -18,7 +18,7 @@
   }
   
   /* Right-aligned section inside the top navigation */
-  .dropdown userTab {
+  #userTab {
   float: right;
   }
   
@@ -67,7 +67,7 @@
     float: left;
   overflow: hidden;
   }
-  
+
   /* Dropdown button */
   .dropbtn {
   font-size: 16px;
