@@ -93,5 +93,5 @@ const MODULE_DATA: Module[] = [
   {moduleNum: 2, description: 'Module 2', dueDate: 'February 1, 2021', status: ''},
   {moduleNum: 3, description: 'Module 3', dueDate: 'March 1, 2021', status: ''},
   {moduleNum: 4, description: 'Module 4', dueDate: 'April 1, 2021', status: ''},
-  {moduleNum: 5, description: 'Module 4', dueDate: 'May 1, 2021', status: ''}
+  {moduleNum: 5, description: 'Module 5', dueDate: 'May 1, 2021', status: ''}
 ];
