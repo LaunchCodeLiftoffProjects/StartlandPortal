@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AnnouncementsComponent implements OnInit {
   announcements: any;
+  announcementsCount: any;
   currentUser: any;
   
   announcementForm: FormGroup;
@@ -38,6 +39,16 @@ export class AnnouncementsComponent implements OnInit {
         },
         err => {
           this.announcements = JSON.parse(err.error).message;
+        }
+      );
+
+      this.announcementService.getAll()
+      .subscribe(
+        data => {
+          this.announcementsCount = Object(data).length;
+        },
+        err => {
+          this.announcementsCount = JSON.parse(err.error).message;
         }
       );
   }
@@ -73,7 +84,6 @@ export class AnnouncementsComponent implements OnInit {
       }
 
       submitNewAnnouncement(announcement: any, newContent: string){
-        console.log(newContent);
         this.announcementService.update(announcement.id, newContent)
           .subscribe(
             response => {

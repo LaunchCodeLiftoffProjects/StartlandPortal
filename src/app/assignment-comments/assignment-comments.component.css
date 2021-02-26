@@ -1,0 +1,15 @@
+.commentsTable{
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+.individualComment {
+    border: 2px solid black;
+    width: 100%;
+    height: auto;
+}
+
+.pullRight{
+    float: right;
+}

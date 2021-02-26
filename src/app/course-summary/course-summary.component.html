@@ -2,7 +2,8 @@
 
     <ng-container matColumnDef="moduleNum">
         <mat-header-cell *matHeaderCellDef>Module #</mat-header-cell>
-        <mat-cell *matCellDef="let module">{{ module.moduleNum }}</mat-cell>
+        <mat-cell *matCellDef="let module"><a href="module{{module.moduleNum}}">Module {{module.moduleNum}}</a></mat-cell>
+
       </ng-container>
 
       <ng-container matColumnDef="description">
