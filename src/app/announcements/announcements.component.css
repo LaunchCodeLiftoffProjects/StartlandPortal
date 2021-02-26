@@ -11,3 +11,9 @@
 .addAnnouncement, .updateAnnouncement {
   text-align: center;
 }
+
+.defaultAnnouncement {
+  text-align: center;
+  font-weight: bold;
+  font-size: medium;
+}

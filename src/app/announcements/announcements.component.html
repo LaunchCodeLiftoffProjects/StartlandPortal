@@ -1,6 +1,11 @@
 <div class="announcements">
   <div>
     <h1 class="announcementsHeader">Internship Announcements</h1>
+    
+    <div class="defaultAnnouncement" *ngIf="announcementsCount === 0">
+      <p>Welcome to Startland Student Portal!</p>
+    </div>
+    
     <div *ngFor ="let announcement of announcements">
       <p>{{announcement.content}}</p>
       <div *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
@@ -10,7 +15,6 @@
           <textarea #newAnnouncement></textarea><br>
           <button (click)='submitNewAnnouncement(announcement, newAnnouncement.value)'>Submit</button>
         </div>
-        
       </div>
     </div>
   </div>
