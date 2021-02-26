@@ -62,13 +62,13 @@
   }
   }
   
-  /* The dropdown container */
-  .dropdown {
+  /* The dropmen container */
+  .dropmen {
     float: left;
   overflow: hidden;
   }
 
-  /* Dropdown button */
+  /* dropmen button */
   .dropbtn {
   font-size: 16px;
   border: none;
@@ -80,8 +80,8 @@
   margin: 0; /* Important for vertical align on mobile phones */
   }
   
-  /* Dropdown content (hidden by default) */
-  .dropdown-content {
+  /* dropmen content (hidden by default) */
+  .dropmen-content {
   display: none;
   position: absolute;
   background-color: #0f9fc3;
@@ -90,8 +90,8 @@
   z-index: 1;
   }
   
-  /* Links inside the dropdown */
-  .dropdown-content a {
+  /* Links inside the dropmen */
+  .dropmen-content a {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -100,13 +100,13 @@
   text-align: left;
   }
   
-  /* Add a grey background color to dropdown links on hover */
-  .dropdown-content a:hover {
+  /* Add a grey background color to dropmen links on hover */
+  .dropmen-content a:hover {
   background-color: #ffbf3c;
   }
   
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
+  /* Show the dropmen menu on hover */
+  .dropmen:hover .dropmen-content {
   display: block;
   }
   

@@ -1,11 +1,11 @@
 
 <div *ngIf="isLoggedIn" class="topnav" id="myTopnav">
     <a href="/home">Home</a>
-    <div class="dropdown">
+    <div class="dropmen">
       <button class="dropbtn">Modules
         <i class="fa fa-caret-down"></i>
       </button>
-      <div class="dropdown-content">
+      <div class="dropmen-content">
         <a href="/module1">Modules 1</a>
         <a href="/module2">Modules 2</a>
         <a href="/module3">Modules 3</a>
@@ -14,11 +14,11 @@
       </div>
     </div>
     <a href="/forums">Forums</a>
-    <div class="dropdown" id="userTab">
+    <div class="dropmen" id="userTab">
     <button class="dropbtn">User
       <i class="fa fa-caret-down"></i>
     </button>
-    <div class="dropdown-content">
+    <div class="dropmen-content">
       <a href="/user-profile">Profile</a>
       <a href (click)="logout()">Logout</a>
     </div>
