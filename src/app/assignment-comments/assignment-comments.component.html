@@ -1,3 +1,8 @@
+
+<h1 class="commentsHeader">Comments</h1>
+
+<!-- One of these will have to go! -->
+
 <div *ngIf="validLink">
     <a href="{{submissionLink}}">{{submissionLink}}</a>
 </div>
@@ -6,3 +11,58 @@
     <p>Sorry, this assignment link is not valid.</p>
 </div>
 
+<a href="{{assignmentLink}}">{{assignmentLink}}</a>
+
+<!--------------------------------------->
+
+<div>
+    <table class="commentsTable">
+        <thead>
+            <th>
+                Comment
+            </th>
+            <th>
+                User
+            </th>
+        </thead>
+
+        <tr class="individualComment" *ngFor ="let comment of comments">
+            <div *ngIf="comment.assignmentId === assignment.id">
+                <td>
+                    <p>{{comment.content}}</p>
+                    <div *ngIf="comment.userId === currentUser.id">
+                        <button (click)='deleteComment(comment)'>Delete</button>
+                        <button (click)='updateComment()'>Update</button>
+                        <div *ngIf="updateMode === true" class="updateComment">
+                          <label>Update Comment: </label><br>
+                          <textarea #newComment></textarea><br>
+                          <button (click)='submitNewComment(comment, newComment.value)'>Submit</button>
+                          <button (click)='cancelUpdateComment()'>Cancel</button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor ="let user of users">
+                        <div *ngIf="user.id === comment.userId">
+                                <p>{{user.username}}</p>
+                        </div>
+                    </div>
+                </td>
+            </div>
+        </tr>
+            
+    </table>
+</div>
+
+
+<div class="assignment-comment">
+    <div class="assignment-comment-form">
+           <form [formGroup]="commentsForm" (ngSubmit)="onFormSubmit()">
+               <div class="form-group" >
+                   <input formControlName="content" type="text" size=40 maxlength=150> 
+               </div>
+               <button>Comment</button>
+           </form>  
+    </div>
+   
+</div>

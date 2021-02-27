@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 paginationBar forumModule forumMargin">
-                    <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 1</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 2</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 3</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 4</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="#">Module 5</a>
+                    <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="module1">Module 1</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="module2">Module 2</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="module3">Module 3</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="module4">Module 4</a> <i class="fa fa-chevron-circle-right paginationArrow"></i> <a href="module5">Module 5</a>
                 </div>
             </div>
 
@@ -23,10 +23,10 @@
                 <!--<a href="#" onclick="showDiscussions(1);">-->
                     <div class="col-lg-12 columnPad">
                         <div class="pullLeft">
-                            <h1>Module 1: NAME</h1> 
+                            <h1>Module 1: NAME</h1>
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="/submit-module-one">Submit Assignment</a>
+                            <a class="btn btn-primary themeButton" [routerLink]="['/submit-assignment', 1]">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -49,7 +49,6 @@
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
                         <div *ngIf="assignment.moduleNum === 1" class="row forumPad">
                             <td>
-                                <!-- <a (click)='viewThisAssignment(assignment.id)'>{{assignment.name}}</a> -->
                                 <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                             </td>
                             <div *ngFor ="let user of users">
@@ -60,11 +59,11 @@
                                 </div>
                             </div>
                             <td class="pullRight">
-                                15
+                                <p>{{commentCount(assignment.id)}}</p>
                             </td>
                         </div>
                     </tr>
-                    
+
                 </table>
             </div>
 
@@ -72,10 +71,10 @@
                 <!--<a href="#" onclick="showDiscussions(2);">-->
                     <div class="col-lg-12 columnPad">
                         <div class="pullLeft">
-                            <h1>Module 2: NAME</h1> 
+                            <h1>Module 2: NAME</h1>
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="/submit-module-two">Submit Assignment</a>
+                            <a class="btn btn-primary themeButton" [routerLink]="['/submit-assignment', 2]">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -98,7 +97,7 @@
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
                         <div *ngIf="assignment.moduleNum === 2" class="row forumPad">
                             <td>
-                                <a href="#">{{assignment.name}}</a>
+                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                             </td>
                             <div *ngFor ="let user of users">
                                 <div *ngIf="user.id === assignment.userId">
@@ -108,11 +107,11 @@
                                 </div>
                             </div>
                             <td class="pullRight">
-                                15
+                                <p>{{commentCount(assignment.id)}}</p>
                             </td>
                         </div>
                     </tr>
-                    
+
                 </table>
             </div>
 
@@ -120,10 +119,10 @@
                 <!--<a href="#" onclick="showDiscussions(3);">-->
                     <div class="col-lg-12 columnPad">
                         <div class="pullLeft">
-                            <h1>Module 3: NAME</h1> 
+                            <h1>Module 3: NAME</h1>
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="/submit-module-three">Submit Assignment</a>
+                            <a class="btn btn-primary themeButton" [routerLink]="['/submit-assignment', 3]">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -146,7 +145,7 @@
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
                         <div *ngIf="assignment.moduleNum === 3" class="row forumPad">
                             <td>
-                                <a href="#">{{assignment.name}}</a>
+                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                             </td>
                             <div *ngFor ="let user of users">
                                 <div *ngIf="user.id === assignment.userId">
@@ -156,7 +155,7 @@
                                 </div>
                             </div>
                             <td class="pullRight">
-                                15
+                                <p>{{commentCount(assignment.id)}}</p>
                             </td>
                         </div>
                     </tr>
@@ -171,7 +170,7 @@
                             <h1>Module 4: NAME</h1> 
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="/submit-module-four">Submit Assignment</a>
+                            <a class="btn btn-primary themeButton" [routerLink]="['/submit-assignment', 4]">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -194,7 +193,7 @@
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
                         <div *ngIf="assignment.moduleNum === 4" class="row forumPad">
                             <td>
-                                <a href="#">{{assignment.name}}</a>
+                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                             </td>
                             <div *ngFor ="let user of users">
                                 <div *ngIf="user.id === assignment.userId">
@@ -204,11 +203,11 @@
                                 </div>
                             </div>
                             <td class="pullRight">
-                                15
+                                <p>{{commentCount(assignment.id)}}</p>
                             </td>
                         </div>
                     </tr>
-                    
+
                 </table>
             </div>
 
@@ -219,7 +218,7 @@
                             <h1>Module 5: NAME</h1> 
                         </div>
                         <div class="pullRight">
-                            <a class="btn btn-primary themeButton" href="/submit-module-five">Submit Assignment</a>
+                            <a class="btn btn-primary themeButton" [routerLink]="['/submit-assignment', 5]">Submit Assignment</a>
                         </div>
                     </div>
                 <!--</a>-->
@@ -242,7 +241,7 @@
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
                         <div *ngIf="assignment.moduleNum === 5" class="row forumPad">
                             <td>
-                                <a href="#">{{assignment.name}}</a>
+                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                             </td>
                             <div *ngFor ="let user of users">
                                 <div *ngIf="user.id === assignment.userId">
@@ -252,7 +251,7 @@
                                 </div>
                             </div>
                             <td class="pullRight">
-                                15
+                                <p>{{commentCount(assignment.id)}}</p>
                             </td>
                         </div>
                     </tr>
@@ -261,7 +260,7 @@
             </div>
             
         </div>
-    
+
     </body>
 
 <script>
