@@ -20,6 +20,9 @@ export class AnnouncementsComponent implements OnInit {
   submitted = false;
 
   updateMode = false;
+  updateAnnouncementid: Number;
+
+  validLink: any;
 
   constructor(
     private token: TokenStorageService,
@@ -30,7 +33,8 @@ export class AnnouncementsComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this.token.getUser();
     this.announcementForm = this.formBuilder.group({
-      content: ['']
+      content: [''],
+      hyperlink: ['']
     });
     this.announcementService.getAll()
       .subscribe(
@@ -54,7 +58,17 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   onFormSubmit(){
-    this.announcementService.create(this.announcementForm.value)
+    if (this.announcementForm.value.link !== ''){
+      if ((this.announcementForm.value.hyperlink).slice(0,4) !== 'http'){
+        this.validLink = 'http://' + this.announcementForm.value.hyperlink;
+      } else {
+        this.validLink = this.announcementForm.value.link;
+      }
+    }
+    
+    this.announcementService.create(
+      this.announcementForm.value.content,
+      this.validLink)
       .subscribe(
         response => {
           console.log(response);
@@ -79,12 +93,25 @@ export class AnnouncementsComponent implements OnInit {
           )
       }
 
-      updateAnnouncement(){
+      updateAnnouncement(id: number){
+        this.updateAnnouncementid = id;
         this.updateMode = true;
       }
 
-      submitNewAnnouncement(announcement: any, newContent: string){
-        this.announcementService.update(announcement.id, newContent)
+      cancelUpdateAnnouncement(){
+        this.updateMode = false;
+      }
+
+      submitNewAnnouncement(announcement: any, newContent: string, newHyperlink: string){
+        if (newHyperlink) {
+          if ((newHyperlink).slice(0,4) !== 'http'){
+            this.validLink = 'http://' + newHyperlink;
+          } else {
+            this.validLink = newHyperlink;
+          }
+        }
+        
+        this.announcementService.update(announcement.id, newContent, this.validLink)
           .subscribe(
             response => {
               console.log(response);

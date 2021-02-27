@@ -7,13 +7,18 @@
     </div>
     
     <div *ngFor ="let announcement of announcements">
-      <p>{{announcement.content}}</p>
+      <p *ngIf="!announcement.hyperlink">{{announcement.content}}</p>
+      <a *ngIf="announcement.hyperlink" href="{{announcement.hyperlink}}">{{announcement.content}}</a>
       <div *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
-        <button (click)='deleteAnnouncement(announcement)'>Delete</button><br>
-        <div *ngIf="updateMode === true" class="updateAnnouncement">
-          <label>Update announcement: </label><br>
+        <button (click)='deleteAnnouncement(announcement)'>Delete</button>
+        <button (click)='updateAnnouncement(announcement.id)' *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">Update</button><br>
+        <div *ngIf="updateMode === true && updateAnnouncementid === announcement.id" class="updateAnnouncement">
+          <label>Update announcement text: </label><br>
           <textarea #newAnnouncement></textarea><br>
-          <button (click)='submitNewAnnouncement(announcement, newAnnouncement.value)'>Submit</button>
+          <label>Update announcement link: </label><br>
+          <textarea #newHyperlink></textarea><br>
+          <button (click)='submitNewAnnouncement(announcement, newAnnouncement.value, newHyperlink.value)'>Submit</button>
+          <button (click)='cancelUpdateAnnouncement()'>Cancel</button>
         </div>
       </div>
     </div>
@@ -22,12 +27,19 @@
 <div class="announcements">
   <form [formGroup]="announcementForm" (ngSubmit)="onFormSubmit()" class="addAnnouncement" *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">
     <div class="form-group">
-      <label>Add announcement: </label><br>
+      <label>Add announcement as plain text: </label><br>
       <textarea formControlName="content" class="form-control"></textarea><br>
       <button>Add</button>
     </div>
+    <div class="form-group">
+      <label>Add announcement as a link: </label><br>
+      <label>Enter text to be displayed here: </label><br>
+      <textarea formControlName="content" class="form-control"></textarea><br>
+      <label>Enter link here: </label><br>
+      <textarea formControlName="hyperlink" class="form-control"></textarea><br>
+      <button>Add</button>
+    </div>
   </form>
-  <button (click)='updateAnnouncement()' *ngIf="currentUser.roles[0] === 'ROLE_ADMIN'">Update</button>
 </div>
 
 
