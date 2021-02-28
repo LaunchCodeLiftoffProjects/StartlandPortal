@@ -13,6 +13,7 @@ export class SubmitAssignmentComponent implements OnInit {
   moduleNumber: any;
   currentUser: any;
   validLink: any;
+  isValid = true;
   submitAssignmentForm: FormGroup;
   updateMode = false;
   submitted = false;
@@ -56,67 +57,89 @@ export class SubmitAssignmentComponent implements OnInit {
   }
 
   onFormSubmit(){
-    if ((this.submitAssignmentForm.value.link).slice(0,4) !== 'http'){
-      this.validLink = 'http://' + this.submitAssignmentForm.value.link;
-    } else {
-      this.validLink = this.submitAssignmentForm.value.link;
-    }
 
-    this.assignmentService.create(
-      this.submitAssignmentForm.value.name,
-      this.submitAssignmentForm.value.moduleNum,
-      this.validLink,
-      this.submitAssignmentForm.value.userId)
+    this.LinkCheck(this.submitAssignmentForm.value.link);
+
+    if(this.isValid){
+      this.assignmentService.create(
+        this.submitAssignmentForm.value.name,
+        this.submitAssignmentForm.value.moduleNum,
+        this.validLink,
+        this.submitAssignmentForm.value.userId)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.reloadPage("Assignment was added successfully!")
+          },
+          error => {
+            console.log(error);
+          });
+    }
+    
+  }
+
+  updateAssignment(){
+    this.updateMode = true;
+  }
+
+  submitNewAssignment(newLink: string){  
+    
+    this.LinkCheck(newLink);
+    
+    if (this.isValid){
+      this.assignmentService.update(this.thisAssignmentId, this.validLink)
       .subscribe(
         response => {
           console.log(response);
-          this.reloadPage("Assignment was added successfully!")
+          this.updateMode = false;
+          this.reloadPage("Assignment was updated successfully!")
         },
         error => {
           console.log(error);
         });
-      }
+    }
+  }
 
-      updateAssignment(){
-        this.updateMode = true;
-      }
-
-      submitNewAssignment(newLink: string){  
-        if ((newLink).slice(0,4) !== 'http'){
-          this.validLink = 'http://' + newLink;
-        } else {
-          this.validLink = newLink;
+  deleteAssignment(){
+    this.assignmentService.delete(this.thisAssignmentId)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.reloadPage("Assignment was deleted successfully!")
+        },
+        error => {
+          console.log(error);
         }
+      )
+  }
 
-        this.assignmentService.update(this.thisAssignmentId, this.validLink)
-          .subscribe(
-            response => {
-              console.log(response);
-              this.updateMode = false;
-              this.reloadPage("Assignment was updated successfully!")
-            },
-            error => {
-              console.log(error);
-            });
-          }
+  reloadPage(message: string) {
+    window.location.reload();
+    this.updateMessage = message;
+  }
 
-          deleteAssignment(){
-            this.assignmentService.delete(this.thisAssignmentId)
-              .subscribe(
-                response => {
-                  console.log(response);
-                  this.reloadPage("Assignment was deleted successfully!")
-                },
-                error => {
-                  console.log(error);
-                }
-              )
-          }
-
-          reloadPage(message: string) {
-            window.location.reload();
-            this.updateMessage = message;
-          }
-
-
+  LinkCheck(link: string){
+  
+    if (!(link.length > 0)){
+      this.isValid = false;
+    }
+  
+    let checkLink: RegExpMatchArray = link.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+  
+    if (checkLink !== null){
+      if (link.includes('http://') || link.includes('http://www.') || link.includes('https://') || link.includes('https://www.')){
+        this.validLink = link;
+        this.isValid = true;
+      } 
+      else {
+        this.validLink = `http://${link}`;
+        this.isValid = true;
+      }
+      
+    }
+    else{
+      this.isValid = false;
+    }
+    
+  }
 }

@@ -14,10 +14,6 @@ import { UserService } from '../_services/user.service';
 export class AssignmentCommentsComponent implements OnInit {
   assignmentId: any;
   assignment: any;
-  // Might not need this after we move the PassLinkTest function to Assignment Link Submission Component
-  submissionLink: string;
-  validLink = false;
-  
   assignments: any;
   assignmentLink: any;
   commentsForm: FormGroup;
@@ -46,8 +42,6 @@ export class AssignmentCommentsComponent implements OnInit {
         .subscribe(
           data => {
             this.assignment = data;
-            // Might not need this after we move the PassLinkTest function to Assignment Link Submission Component
-            this.PassLinkTest(this.assignment.link);
             this.assignmentLink = Object(data).link
           },
           err => {
@@ -84,38 +78,6 @@ export class AssignmentCommentsComponent implements OnInit {
       }
     );
 
-  }
-
-
-// Might not need this after we move the PassLinkTest function to Assignment Link Submission Component
-  PassLinkTest(link: string){
-    const err: string = 'Not a valid link';
-  
-    if (!(link.length > 0)){
-      this.submissionLink = err;
-    }
-  
-    let checkLink: RegExpMatchArray = link.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-  
-    if (checkLink !== null){
-      if (link.includes('http://') || link.includes('http://www.')){
-        this.submissionLink = link;
-      } 
-      else {
-        this.submissionLink = `http://${link}`;
-      }
-      
-    }
-    else{
-      this.submissionLink = err;
-    }
-    
-    if (this.submissionLink === err){
-      this.validLink = false;
-    }
-    if (this.submissionLink !== err){
-      this.validLink = true;
-    };
   }
 
   onFormSubmit(){
