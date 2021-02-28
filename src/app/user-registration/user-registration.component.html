@@ -40,6 +40,30 @@
                     <span *ngIf="fval.username.errors.required">Username is required</span>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="school">School:</label><br>
+                    <input type="text" formControlName="school" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.school.errors }" placeholder="School"/><br>
+                <div *ngIf="submitted && fval.school.errors" class="invalid-feedback">
+                    <span *ngIf="fval.school.errors.required">School is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="district">District:</label><br>
+                    <input type="text" formControlName="district" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.district.errors }" placeholder="District"/><br>
+                <div *ngIf="submitted && fval.district.errors" class="invalid-feedback">
+                    <span *ngIf="fval.district.errors.required">District is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position:</label><br>
+                    <input type="text" formControlName="position" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.position.errors }" placeholder="Position"/><br>
+                <div *ngIf="submitted && fval.position.errors" class="invalid-feedback">
+                    <span *ngIf="fval.position.errors.required">position is required</span>
+                </div>
+            </div>
         
             <div class="form-group">
                 <label for="password">Password:</label><br>

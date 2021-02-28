@@ -48,6 +48,9 @@ export class AuthenticationService {
       firstName: user.firstName,
       lastName: user.lastName,
       username: user.username,
+      school: user.school,
+      district: user.district,
+      position: user.position,
       password: user.password
     }, httpOptions);
   }
