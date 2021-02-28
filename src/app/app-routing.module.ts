@@ -18,7 +18,7 @@ import { Module4Component } from './module4/module4.component';
 import { Module5Component } from './module5/module5.component';
 import { SubmitAssignmentComponent } from './submit-assignment/submit-assignment.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
+import { Wildcard404Component } from './wildcard404/wildcard404.component';
 
 const routes: Routes = [
   // Register and Log In Users
@@ -40,8 +40,10 @@ const routes: Routes = [
   // View Current User's Profile
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthenticationService] },
   
+  // 404 Not Found
+  { path: '404-not-found', component: Wildcard404Component, canActivate: [AuthenticationService] },
   // This path goes LAST
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '404-not-found' }
   // Any paths after will redirect to the login page
 ];
 
