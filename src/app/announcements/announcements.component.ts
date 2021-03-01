@@ -19,7 +19,9 @@ export class AnnouncementsComponent implements OnInit {
   reviseAnnouncementForm: FormGroup;
   submitted = false;
 
-  updateMode = false;
+  updateTextMode = false;
+  updateLinkMode = false;
+  linkMode = false;
   updateAnnouncementid: Number;
 
   validLink: any;
@@ -58,7 +60,7 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   onFormSubmit(){
-    if (this.announcementForm.value.link !== ''){
+    if (this.announcementForm.value.hyperlink !== ''){
       if ((this.announcementForm.value.hyperlink).slice(0,4) !== 'http'){
         this.validLink = 'http://' + this.announcementForm.value.hyperlink;
       } else {
@@ -93,29 +95,52 @@ export class AnnouncementsComponent implements OnInit {
           )
       }
 
-      updateAnnouncement(id: number){
+      updateAnnouncementText(id: number){
         this.updateAnnouncementid = id;
-        this.updateMode = true;
+        this.updateTextMode = true;
+      }
+
+      updateAnnouncementLink(id: number){
+        this.updateAnnouncementid = id;
+        this.updateLinkMode = true;
       }
 
       cancelUpdateAnnouncement(){
-        this.updateMode = false;
+        this.updateTextMode = false;
+        this.updateLinkMode = false;
       }
 
-      submitNewAnnouncement(announcement: any, newContent: string, newHyperlink: string){
-        if (newHyperlink) {
-          if ((newHyperlink).slice(0,4) !== 'http'){
-            this.validLink = 'http://' + newHyperlink;
-          } else {
-            this.validLink = newHyperlink;
-          }
-        }
-        
-        this.announcementService.update(announcement.id, newContent, this.validLink)
+      includeLinkMode(){
+        this.linkMode = true;
+      }
+
+      submitNewAnnouncementText(announcement: any, newContent: string){
+        this.announcementService.updateText(announcement.id, newContent)
           .subscribe(
             response => {
               console.log(response);
-              this.updateMode = false;
+              this.updateTextMode = false;
+              this.updateLinkMode = false;
+              window.location.reload();
+            },
+            error => {
+              console.log(error);
+            });
+          }
+      
+      submitNewAnnouncementLink(announcement: any, newHyperlink: string){
+        if ((newHyperlink).slice(0,4) !== 'http'){
+          this.validLink = 'http://' + newHyperlink;
+        } else {
+          this.validLink = newHyperlink;
+        }
+        
+        this.announcementService.updateLink(announcement.id, this.validLink)
+          .subscribe(
+            response => {
+              console.log(response);
+              this.updateTextMode = false;
+              this.updateLinkMode = false;
               window.location.reload();
             },
             error => {

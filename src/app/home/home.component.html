@@ -1,5 +1,5 @@
 
-<div class="container" *ngIf="currentUser; else loggedOut">
+<div *ngIf="currentUser; else loggedOut">
   
   <app-announcements></app-announcements>
   <app-course-summary></app-course-summary>
@@ -8,3 +8,7 @@
 <ng-template #loggedOut>
   Please login.
 </ng-template>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>

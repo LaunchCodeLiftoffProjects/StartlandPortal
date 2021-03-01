@@ -32,9 +32,14 @@ export class AnnouncementService {
     }, httpOptions);
   }
 
-  update(id, content, hyperlink) {
-    return this.http.put(baseUrl + `${id}`, {
-      content: content,
+  updateText(id, content) {
+    return this.http.put(baseUrl + 'text/' + `${id}`, {
+      content: content
+    });
+  }
+
+  updateLink(id, hyperlink) {
+    return this.http.put(baseUrl + 'link/' + `${id}`, {
       hyperlink: hyperlink
     });
   }

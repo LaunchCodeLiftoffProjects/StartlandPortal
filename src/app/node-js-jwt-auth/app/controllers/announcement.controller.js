@@ -33,9 +33,21 @@ exports.findOne = (req, res) => {
   
 };
 
-// Update an Announcement by the id in the request
-exports.update = (req, res) => {
-  Announcement.update({ content: req.body.content, hyperlink: req.body.hyperlink }, { where: { id: req.params.id }
+// Update Announcement Text by the id in the request
+exports.updateText = (req, res) => {
+  Announcement.update({ content: req.body.content }, { where: { id: req.params.id }
+  })
+  .then(() => {
+    res.send({ message: "Announcement updated successfully!" });
+  })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    })
+  };
+
+// Update Announcement Link by the id in the request
+exports.updateLink = (req, res) => {
+  Announcement.update({ hyperlink: req.body.hyperlink }, { where: { id: req.params.id }
   })
   .then(() => {
     res.send({ message: "Announcement updated successfully!" });
