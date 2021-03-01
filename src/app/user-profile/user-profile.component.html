@@ -24,12 +24,18 @@
     <strong>Position:</strong>
     
   </p>
-  <strong>Roles:</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
+  <div>
+        <button (click)='updateProfile()'>Edit Profile</button>
+    <div *ngIf="updateMode === true" class="updateForm">
+      <div class="form-group">
+        <label for="username">Username:</label><br>
+            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.username.errors }" placeholder="Username"/><br>
+        <label for="email">Email:</label><br>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Email"/><br>
+        <button (click)='cancelUpdateProfile()'>Cancel</button>
+      </div>
+    </div>
+
 </div>
 
 <ng-template #loggedOut>
