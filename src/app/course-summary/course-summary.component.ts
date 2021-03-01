@@ -60,11 +60,15 @@ export class CourseSummaryComponent {
             if (this.submitted[i] === false) {
               MODULE_DATA[i].status = 'Not Complete';
             } else {
-              MODULE_DATA[i].status = 'Completed';
+              MODULE_DATA[i].status = 'Complete';
             }
             
             if (this.currentdate.getTime() > this.duedates[i].getTime() && this.submitted[i] === false) {
               MODULE_DATA[i].status = 'Past Due'
+            }
+
+            if (this.currentdate.toDateString() === this.duedates[i].toDateString() && this.submitted[i] === false) {
+              MODULE_DATA[i].status = 'DUE TODAY!'
             }
             
           }
