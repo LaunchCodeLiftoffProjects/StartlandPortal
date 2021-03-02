@@ -9,21 +9,21 @@ import { CourseSummaryComponent} from '../course-summary/course-summary.componen
   styleUrls: ['./progress-bar.component.css']
 })
 export class ProgressBarComponent implements OnInit {
-  currentUser: any;
+  /*currentUser: any;
   assignments: any;
   module: any;
 
   modules = [1,2,3,4];
-  submitted = [];
+  submitted = [];*/
 
   constructor(
-    private token: TokenStorageService,
+    /*private token: TokenStorageService,
     private assignmentService: AssignmentService,
-    private moduleNum: CourseSummaryComponent
+    private moduleNum: CourseSummaryComponent*/
   ) { }
 
   ngOnInit() {
-    this.currentUser = this.token.getUser();
+    /*this.currentUser = this.token.getUser();
 
     this.module = this.moduleNum;
 
@@ -48,6 +48,6 @@ export class ProgressBarComponent implements OnInit {
 
           }
 
-        })
+        })*/
     }
   }
