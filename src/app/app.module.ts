@@ -16,7 +16,6 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 import { UserProfileComponent} from './user-profile/user-profile.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { ModulesComponent } from './modules/modules.component';
 import { Module1Component } from './module1/module1.component';
 import { Module2Component } from './module2/module2.component';
 import { Module3Component } from './module3/module3.component';
@@ -43,7 +42,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     LogInComponent,
     UserRegistrationComponent,
     ProgressBarComponent,
-    ModulesComponent,
     Module1Component,
     Module2Component,
     Module3Component,
