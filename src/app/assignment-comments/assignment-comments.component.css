@@ -1,15 +1,23 @@
-.commentsTable{
-    width: 100%;
-    height: auto;
-    border: 1px solid black;
+h1 {
+    text-align: center;
 }
 
-.individualComment {
-    border: 2px solid black;
-    width: 100%;
-    height: auto;
+h3 {
+    text-align: center;
 }
 
-.pullRight{
-    float: right;
+.themeButton{
+    background-color: #0F9FCE;
+    color: #1C355E;
+    border-color: #1C355E;
+    border-width: thin;
+    font-weight: 500;
 }
+
+.themeButton:hover{
+    background-color: #FFBF3C;
+    color: #1C355E;
+    border-width: thin;
+    border-color: #1C355E;
+}
+
