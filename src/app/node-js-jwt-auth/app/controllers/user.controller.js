@@ -24,3 +24,26 @@ exports.findAll = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+// Update a User by the id in the request
+exports.update = (req, res) => {
+  User.update({ username: req.body.username, email: req.body.email }, { where: { id: req.params.id }
+  })
+  .then(() => {
+    res.send({ message: "User updated successfully!" });
+  })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    })
+  };
+
+  // Find a single User with an user id
+exports.findSelectedUser = (req, res) => {
+  User.findOne({ where: {id: req.params.id }})
+  .then(user => {
+    res.status(200).send(user);
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+};

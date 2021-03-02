@@ -16,7 +16,11 @@ export class UserProfileComponent implements OnInit {
   submitted = false;
   updateMode = false;
   comments: any;
-  users: any;
+  username: any;
+  firstName: any;
+  lastName: any;
+  email: any;
+  school: any;
 
   constructor(
     private token: TokenStorageService,
@@ -29,9 +33,21 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this.token.getUser();
     this.updateForm = this.formBuilder.group({
-      email: ['', [Validators.required,Validators.email]],
-      username: ['', Validators.required]
+      email: [''],
+      username: ['']
       });
+    this.userService.getSelectedUser(this.currentUser.id)
+      .subscribe(
+        data => {
+          this.username = Object(data).username;
+          this.firstName = Object(data).firstName;
+          this.lastName = Object(data).lastName;
+          this.email = Object(data).email;
+        },
+        err => {
+          this.username = JSON.parse(err.error).message;
+        }
+      );
   }
 
   updateProfile(){
@@ -43,8 +59,14 @@ export class UserProfileComponent implements OnInit {
     this.updateMode = false;
   }
 
-  submitUpdatedUserInfo(){
-    this.userService.update(this.currentUser)
+  onFormSubmit(){
+    if (this.updateForm.value.username === ''){
+      this.username = this.currentUser.username
+    } else { this.username = this.updateForm.value.username}
+    if (this.updateForm.value.email === ''){
+      this.email = this.currentUser.email
+    } else{ this.email = this.updateForm.value.email}
+    this.userService.update(this.currentUser.id, this.username, this.email)
       .subscribe(
         response => {
           console.log(response);

@@ -23,6 +23,9 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+  app.get(`/api/user/:id?`, controller.findSelectedUser);
 
   app.get("/api/user/getAll", controller.findAll);
+
+  app.put(`/api/user/:id?`, controller.update);
 };

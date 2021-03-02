@@ -31,13 +31,15 @@ export class UserService {
     return this.http.get(baseUrl + 'getAll');
   }
 
-  update(user): Observable<any> {
-    return this.http.post(API_URL + 'user', {
-      email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      username: user.username,
-      password: user.password
-    }, httpOptions);
-  }
+  update(id, username, email): Observable<any> {
+    return this.http.put(baseUrl + `${id}`, {
+      username: username,
+      email: email
+    })
+}
+
+  getSelectedUser(id) {
+  return this.http.get(baseUrl + `${id}`);
+}
+
 }
