@@ -2,3 +2,11 @@
     color: red;
     font-weight: bold;
 }
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #FFBF3C;
+}
