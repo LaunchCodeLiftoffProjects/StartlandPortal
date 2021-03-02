@@ -62,10 +62,16 @@ export class UserProfileComponent implements OnInit {
   onFormSubmit(){
     if (this.updateForm.value.username === ''){
       this.username = this.currentUser.username
-    } else { this.username = this.updateForm.value.username}
+    } else { 
+      this.username = this.updateForm.value.username
+    }
+
     if (this.updateForm.value.email === ''){
       this.email = this.currentUser.email
-    } else{ this.email = this.updateForm.value.email}
+    } else { 
+      this.email = this.updateForm.value.email 
+    }
+    
     this.userService.update(this.currentUser.id, this.username, this.email)
       .subscribe(
         response => {
