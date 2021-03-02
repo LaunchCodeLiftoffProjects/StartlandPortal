@@ -1,0 +1,14 @@
+.updateMessage {
+    color: limegreen;
+    font-weight: bold;
+}
+
+.submit-assignment {
+    margin: auto;
+    max-width: fit-content;
+    text-align: center;
+}
+
+/* p {
+    text-align: left;
+} */
