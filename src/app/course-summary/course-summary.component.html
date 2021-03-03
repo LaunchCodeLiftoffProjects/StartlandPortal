@@ -1,26 +1,57 @@
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="container-fluid text-center">
+  
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      
+    </div>
 
-    <ng-container matColumnDef="moduleNum">
-        <mat-header-cell *matHeaderCellDef>Module #</mat-header-cell>
-        <mat-cell *matCellDef="let module"><a href="module{{module.moduleNum}}">Module {{module.moduleNum}}</a></mat-cell>
+    <div class="col-sm-8 text-left">
 
-      </ng-container>
+      <h1>Course Summary</h1>
 
-      <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
-        <mat-cell *matCellDef="let module">{{ module.description }}</mat-cell>
-      </ng-container>
+      <div class='summary'>
 
-      <ng-container matColumnDef="dueDate">
-        <mat-header-cell *matHeaderCellDef>Due Date</mat-header-cell>
-        <mat-cell *matCellDef="let module">{{ module.dueDate }}</mat-cell>
-      </ng-container>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <ng-container matColumnDef="status">
-        <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-        <mat-cell *matCellDef="let module">{{ module.status }}</mat-cell>
-      </ng-container>
+          <ng-container matColumnDef="moduleNum">
+              <mat-header-cell *matHeaderCellDef>Module #</mat-header-cell>
+              <mat-cell *matCellDef="let module"><a href="module{{module.moduleNum}}">Module {{module.moduleNum}}</a></mat-cell>
+          </ng-container>
+        
+          <ng-container matColumnDef="description">
+              <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+              <mat-cell *matCellDef="let module">{{ module.description }}</mat-cell>
+          </ng-container>
+        
+          <ng-container matColumnDef="dueDate">
+              <mat-header-cell *matHeaderCellDef>Due Date</mat-header-cell>
+              <mat-cell *matCellDef="let module">{{ module.dueDate }}</mat-cell>
+          </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+          <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+            <mat-cell *matCellDef="let module">
+              <p *ngIf="module.status === 'Past Due'" class='pastDue'>{{ module.status }}</p>
+              <p *ngIf="module.status === 'Complete'" class='complete'>{{ module.status }}</p>
+              <p *ngIf="module.status === 'DUE TODAY!'" class='dueToday'>{{ module.status }}</p>
+              <p *ngIf="module.status === 'Not Complete'">{{ module.status }}</p>
+            </mat-cell>
+          </ng-container>
+        
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+        </mat-table>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-2 sidenav">
+      
+    </div>
+
+  </div>
+
+</div>

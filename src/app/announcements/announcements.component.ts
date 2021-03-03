@@ -19,7 +19,12 @@ export class AnnouncementsComponent implements OnInit {
   reviseAnnouncementForm: FormGroup;
   submitted = false;
 
-  updateMode = false;
+  updateTextMode = false;
+  updateLinkMode = false;
+  linkMode = false;
+  updateAnnouncementid: Number;
+
+  validLink: any;
 
   constructor(
     private token: TokenStorageService,
@@ -30,7 +35,8 @@ export class AnnouncementsComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this.token.getUser();
     this.announcementForm = this.formBuilder.group({
-      content: ['']
+      content: [''],
+      hyperlink: ['']
     });
     this.announcementService.getAll()
       .subscribe(
@@ -54,7 +60,17 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   onFormSubmit(){
-    this.announcementService.create(this.announcementForm.value)
+    if (this.announcementForm.value.hyperlink !== ''){
+      if ((this.announcementForm.value.hyperlink).slice(0,4) !== 'http'){
+        this.validLink = 'http://' + this.announcementForm.value.hyperlink;
+      } else {
+        this.validLink = this.announcementForm.value.link;
+      }
+    }
+    
+    this.announcementService.create(
+      this.announcementForm.value.content,
+      this.validLink)
       .subscribe(
         response => {
           console.log(response);
@@ -79,16 +95,52 @@ export class AnnouncementsComponent implements OnInit {
           )
       }
 
-      updateAnnouncement(){
-        this.updateMode = true;
+      updateAnnouncementText(id: number){
+        this.updateAnnouncementid = id;
+        this.updateTextMode = true;
       }
 
-      submitNewAnnouncement(announcement: any, newContent: string){
-        this.announcementService.update(announcement.id, newContent)
+      updateAnnouncementLink(id: number){
+        this.updateAnnouncementid = id;
+        this.updateLinkMode = true;
+      }
+
+      cancelUpdateAnnouncement(){
+        this.updateTextMode = false;
+        this.updateLinkMode = false;
+      }
+
+      includeLinkMode(){
+        this.linkMode = true;
+      }
+
+      submitNewAnnouncementText(announcement: any, newContent: string){
+        this.announcementService.updateText(announcement.id, newContent)
           .subscribe(
             response => {
               console.log(response);
-              this.updateMode = false;
+              this.updateTextMode = false;
+              this.updateLinkMode = false;
+              window.location.reload();
+            },
+            error => {
+              console.log(error);
+            });
+          }
+      
+      submitNewAnnouncementLink(announcement: any, newHyperlink: string){
+        if ((newHyperlink).slice(0,4) !== 'http'){
+          this.validLink = 'http://' + newHyperlink;
+        } else {
+          this.validLink = newHyperlink;
+        }
+        
+        this.announcementService.updateLink(announcement.id, this.validLink)
+          .subscribe(
+            response => {
+              console.log(response);
+              this.updateTextMode = false;
+              this.updateLinkMode = false;
               window.location.reload();
             },
             error => {

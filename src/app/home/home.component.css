@@ -1,3 +1,11 @@
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+
 .announcements{
     position: relative;
     margin: auto;
@@ -21,3 +29,4 @@ hr {
     margin: auto;
     max-width: 60%;
 }
+

@@ -15,6 +15,8 @@ module.exports = function(app) {
 
     app.delete(`/api/announcement/:id?`, controller.delete);
 
-    app.put(`/api/announcement/:id?`, controller.update);
+    app.put(`/api/announcement/text/:id?`, controller.updateText);
+
+    app.put(`/api/announcement/link/:id?`, controller.updateLink);
 
 };

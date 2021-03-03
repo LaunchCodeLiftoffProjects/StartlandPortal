@@ -6,7 +6,8 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Announcement
 exports.create = (req, res) => {
   Announcement.create({
-    content: req.body.content
+    content: req.body.content,
+    hyperlink: req.body.hyperlink
   })
   .then(() => {
     res.send({ message: "Announcement was added successfully!" });
@@ -32,9 +33,21 @@ exports.findOne = (req, res) => {
   
 };
 
-// Update an Announcement by the id in the request
-exports.update = (req, res) => {
+// Update Announcement Text by the id in the request
+exports.updateText = (req, res) => {
   Announcement.update({ content: req.body.content }, { where: { id: req.params.id }
+  })
+  .then(() => {
+    res.send({ message: "Announcement updated successfully!" });
+  })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    })
+  };
+
+// Update Announcement Link by the id in the request
+exports.updateLink = (req, res) => {
+  Announcement.update({ hyperlink: req.body.hyperlink }, { where: { id: req.params.id }
   })
   .then(() => {
     res.send({ message: "Announcement updated successfully!" });

@@ -1,19 +1,41 @@
+.row.content {height: 450px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+.themeButton{
+  background-color: #0F9FCE;
+  color: #1C355E;
+  border-color: #1C355E;
+  border-width: thin;
+  font-weight: 500;
+  margin: 5px;
+}
+
+.themeButton:hover{
+  background-color: #FFBF3C;
+  color: #1C355E;
+  border-width: thin;
+  border-color: #1C355E;
+}
+
 .announcements {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
+  margin: 25px;
 }
 
-.announcementsHeader {
-  text-align: center;
+.addAnnouncement {
+  margin: 50px 25px;
 }
 
-.addAnnouncement, .updateAnnouncement {
-  text-align: center;
-}
-
-.defaultAnnouncement {
-  text-align: center;
-  font-weight: bold;
-  font-size: medium;
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;}
 }

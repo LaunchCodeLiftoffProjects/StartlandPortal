@@ -25,15 +25,22 @@ export class AnnouncementService {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(data): Observable<any> {
+  create(content, hyperlink): Observable<any> {
     return this.http.post(baseUrl + 'create', {
-      content: data.content
+      content: content,
+      hyperlink: hyperlink
     }, httpOptions);
   }
 
-  update(id, data) {
-    return this.http.put(baseUrl + `${id}`, {
-      content: data
+  updateText(id, content) {
+    return this.http.put(baseUrl + 'text/' + `${id}`, {
+      content: content
+    });
+  }
+
+  updateLink(id, hyperlink) {
+    return this.http.put(baseUrl + 'link/' + `${id}`, {
+      hyperlink: hyperlink
     });
   }
 
