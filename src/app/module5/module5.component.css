@@ -24,3 +24,18 @@
       }
       .row.content {height:auto;}
     }
+
+    .sponsor {
+      height: 100%;
+      width: 100%;
+    }
+
+    .btn-group-vertical{
+      background-color: #1C355E;
+      height: 90%;
+      width: 90%;
+    }
+
+    .video {
+      padding-left: 21%
+    }

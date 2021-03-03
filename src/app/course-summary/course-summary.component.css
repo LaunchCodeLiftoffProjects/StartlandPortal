@@ -29,6 +29,7 @@ mat-header-cell {
     font-weight: bold;
 }
 
+
 .dueToday {
     background-color: #FFFF00;
     font-weight: bold;
@@ -36,4 +37,12 @@ mat-header-cell {
 
 .complete {
     color: #0F9FCE;
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #FFBF3C;
+
 }

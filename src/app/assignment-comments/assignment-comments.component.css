@@ -1,15 +1,36 @@
-.commentsTable{
-    width: 100%;
-    height: auto;
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.themeButton{
+    background-color: #0F9FCE;
+    color: #1C355E;
+    border-color: #1C355E;
+    border-width: thin;
+    font-weight: 500;
+}
+
+.themeButton:hover{
+    background-color: #FFBF3C;
+    color: #1C355E;
+    border-width: thin;
+    border-color: #1C355E;
+}
+
+.table {
     border: 1px solid black;
 }
 
-.individualComment {
-    border: 2px solid black;
-    width: 100%;
-    height: auto;
+thead {
+    border: 1px solid black;
 }
 
-.pullRight{
-    float: right;
+tr {
+    border: 1px solid black;
 }
+
+

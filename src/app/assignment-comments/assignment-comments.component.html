@@ -1,10 +1,17 @@
-<a href="{{assignmentLink}}">{{assignmentLink}}</a>
 
-<h1 class="commentsHeader">Comments</h1>
+<div class="container">
+    <h1 class="assignmentHeader">Assignment</h1>
+    <a href="{{assignmentLink}}">{{assignmentLink}}</a>
+</div>
 
-<div>
-    <table class="commentsTable">
-        <thead>
+
+
+
+<div class="container">
+    <h3 class="commentsHeader">Comments</h3>
+    <table class="table table-striped">
+        <thead style="display:table-header-group">
+
             <th>
                 Comment
             </th>
@@ -13,42 +20,40 @@
             </th>
         </thead>
 
-        <tr class="individualComment" *ngFor ="let comment of comments">
-            <div *ngIf="comment.assignmentId === assignment.id">
-                <td>
-                    <p>{{comment.content}}</p>
-                    <div *ngIf="comment.userId === currentUser.id">
-                        <button (click)='deleteComment(comment)'>Delete</button>
-                        <button (click)='updateComment()'>Update</button>
-                        <div *ngIf="updateMode === true" class="updateComment">
-                          <label>Update Comment: </label><br>
-                          <textarea #newComment></textarea><br>
-                          <button (click)='submitNewComment(comment, newComment.value)'>Submit</button>
-                          <button (click)='cancelUpdateComment()'>Cancel</button>
+        <tbody>
+            <tr *ngFor ="let comment of comments">
+                    <td *ngIf="comment.assignmentId === assignment.id">
+                        <p>{{comment.content}}</p>
+                        <div *ngIf="comment.userId === currentUser.id">
+                            <button class="btn btn-primary themeButton" (click)='deleteComment(comment)'>Delete</button>
+                            <button class="btn btn-primary themeButton" (click)='updateComment()'>Update</button>
+                            <div *ngIf="updateMode === true" class="updateComment">
+                            <label>Update Comment: </label><br>
+                            <textarea #newComment></textarea><br>
+                            <button class="btn btn-primary themeButton" (click)='submitNewComment(comment, newComment.value)'>Submit</button>
+                            <button class="btn btn-primary themeButton" (click)='cancelUpdateComment()'>Cancel</button>
+                            </div>
                         </div>
-                    </div>
-                </td>
-                <td>
-                    <div *ngFor ="let user of users">
-                        <div *ngIf="user.id === comment.userId">
-                                <p>{{user.username}}</p>
+                    </td>
+                    <td *ngIf="comment.assignmentId === assignment.id">
+                        <div *ngFor ="let user of users">
+                            <div *ngIf="user.id === comment.userId">
+                                    <p>{{user.username}}</p>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </div>
-        </tr>
-            
+                    </td>
+            </tr>
+        </tbody>
     </table>
 </div>
 
-
-<div class="assignment-comment">
+<div class="assignment-comment container">
     <div class="assignment-comment-form">
-           <form [formGroup]="commentsForm" (ngSubmit)="onFormSubmit()">
+           <form class="form-inline" [formGroup]="commentsForm" (ngSubmit)="onFormSubmit()">
                <div class="form-group" >
                    <input formControlName="content" type="text" size=40 maxlength=150> 
                </div>
-               <button>Comment</button>
+               <button class="btn btn-primary themeButton">Comment</button>
            </form>  
     </div>
    

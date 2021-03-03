@@ -1,6 +1,32 @@
+
 /* Set black background color, white text and some padding */
 footer {
     background-color: #555;
     color: white;
     padding: 15px;
   }
+
+.announcements{
+    position: relative;
+    margin: auto;
+    max-width: 100%;
+}
+
+.welcome-message {
+    position: relative;
+    left: 20%;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: #1C355E;
+    background-image: linear-gradient(to right, #FFBF3C, #0F9FCE, #FFBF3C);
+}
+
+.home-content {
+    position: relative;
+    margin: auto;
+    max-width: 60%;
+}
+

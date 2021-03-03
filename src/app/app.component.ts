@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
-import { Router } from '@angular/router';
-import { AuthenticationService } from './_services/authentication.service';
-import { LogInComponent } from './log-in/log-in.component';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +11,9 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   username: string;
+  firstName: string;
   
-  constructor(
-    private tokenStorageService: TokenStorageService,
-    private router: Router,
-    private authenticationService: AuthenticationService
-    ) { }
+  constructor( private tokenStorageService: TokenStorageService ) { }
 
     ngOnInit() {
       this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -31,7 +25,9 @@ export class AppComponent implements OnInit {
         this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
         
         this.username = user.username;
+        this.firstName = user.firstName;
       }
+    
     }
   
     logout() {
