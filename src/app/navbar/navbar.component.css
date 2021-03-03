@@ -68,6 +68,10 @@
   overflow: hidden;
   }
 
+  .dropmen:hover {
+    background-color: #ffbf3c;
+  }
+
   /* dropmen button */
   .dropbtn {
   font-size: 16px;
