@@ -4,6 +4,7 @@
 </div>
 
 
+
 <div class="container">
     <h3 class="commentsHeader">Comments</h3>
     <table class="table table-striped">
@@ -18,8 +19,7 @@
 
         <tbody>
             <tr *ngFor ="let comment of comments">
-                <div *ngIf="comment.assignmentId === assignment.id">
-                    <td>
+                    <td *ngIf="comment.assignmentId === assignment.id">
                         <p>{{comment.content}}</p>
                         <div *ngIf="comment.userId === currentUser.id">
                             <button class="btn btn-primary themeButton" (click)='deleteComment(comment)'>Delete</button>
@@ -32,14 +32,13 @@
                             </div>
                         </div>
                     </td>
-                    <td>
+                    <td *ngIf="comment.assignmentId === assignment.id">
                         <div *ngFor ="let user of users">
                             <div *ngIf="user.id === comment.userId">
                                     <p>{{user.username}}</p>
                             </div>
                         </div>
                     </td>
-                </div>
             </tr>
         </tbody>
     </table>
