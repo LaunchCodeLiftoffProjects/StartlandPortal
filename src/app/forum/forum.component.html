@@ -39,7 +39,7 @@
                             </td>
                                     <td *ngIf="assignment.moduleNum === 1" >
                                         <div *ngFor ="let user of users">
-                                          <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                            <p *ngIf="user.id === assignment.userId">{{user.username}}</p>
                                         </div>
                                     </td>
 
@@ -85,7 +85,7 @@
                       </td>
                               <td *ngIf="assignment.moduleNum === 2" >
                                   <div *ngFor ="let user of users">
-                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                    <p *ngIf="user.id === assignment.userId" >{{user.username}}</p>
                                   </div>
                               </td>
 
@@ -133,7 +133,7 @@
                       </td>
                               <td *ngIf="assignment.moduleNum === 3" >
                                   <div *ngFor ="let user of users">
-                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                    <p *ngIf="user.id === assignment.userId" >{{user.username}}</p>
                                   </div>
                               </td>
 
@@ -179,7 +179,7 @@
                       </td>
                               <td *ngIf="assignment.moduleNum === 4" >
                                   <div *ngFor ="let user of users">
-                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                    <p *ngIf="user.id === assignment.userId" >{{user.username}}</p>
                                   </div>
                               </td>
 
@@ -227,7 +227,7 @@
                       </td>
                               <td *ngIf="assignment.moduleNum === 5" >
                                   <div *ngFor ="let user of users">
-                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                    <p *ngIf="user.id === assignment.userId" >{{user.username}}</p>
                                   </div>
                               </td>
 

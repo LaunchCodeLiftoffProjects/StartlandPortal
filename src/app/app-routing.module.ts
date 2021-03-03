@@ -31,7 +31,6 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent, canActivate: [AuthenticationService] },
   { path: 'assignment-comments/:id', component: AssignmentCommentsComponent, canActivate: [AuthenticationService] },
   // Course Content & Assignment Submission
-  { path: 'modules', component: ModulesComponent, canActivate: [AuthenticationService] },
   { path: 'module1', component: Module1Component, canActivate: [AuthenticationService] },
   { path: 'module2', component: Module2Component, canActivate: [AuthenticationService] },
   { path: 'module3', component: Module3Component, canActivate: [AuthenticationService] },
