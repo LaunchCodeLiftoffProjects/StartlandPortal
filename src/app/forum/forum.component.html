@@ -1,4 +1,4 @@
-   <!-- Start of Forum Structure layout-->
+<!-- Start of Forum Structure layout-->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 paginationBar forumModule forumMargin">
@@ -127,6 +127,7 @@
                     </thead>
 
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
+
                       <td *ngIf="assignment.moduleNum === 3" >
                           <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                       </td>
@@ -141,7 +142,6 @@
                       </td>
 
               </tr>
-
 
                 </table>
             </div>
@@ -221,6 +221,7 @@
                     </thead>
 
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
+
                       <td *ngIf="assignment.moduleNum === 5" >
                           <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                       </td>
@@ -236,9 +237,9 @@
 
               </tr>
 
-
                 </table>
             </div>
 
         </div>
+
 

@@ -9,23 +9,21 @@ import { CourseSummaryComponent} from '../course-summary/course-summary.componen
   styleUrls: ['./progress-bar.component.css']
 })
 export class ProgressBarComponent implements OnInit {
-  /*currentUser: any;
+  currentUser: any;
   assignments: any;
-  module: any;
 
   modules = [1,2,3,4];
-  submitted = [];*/
+  submitted = [];
+  completed: number;
 
   constructor(
-    /*private token: TokenStorageService,
-    private assignmentService: AssignmentService,
-    private moduleNum: CourseSummaryComponent*/
+    private token: TokenStorageService,
+    private assignmentService: AssignmentService
+
   ) { }
 
   ngOnInit() {
-    /*this.currentUser = this.token.getUser();
-
-    this.module = this.moduleNum;
+    this.currentUser = this.token.getUser();
 
     this.assignmentService.getAll()
       .subscribe(
@@ -36,18 +34,18 @@ export class ProgressBarComponent implements OnInit {
 
             for (let a = 0; a < Object(data).length; a++) {
 
-              if (Object(data)[a].module === this.modules[i] && Object(data)[a].userId === this.currentUser.id) {
+              if (Object(data)[a].moduleNum === this.modules[i] && Object(data)[a].userId === this.currentUser.id) {
                 this.submitted.push(true);
               }
 
             }
 
-            if (this.submitted.length === this.modules[i] -1) {
-              this.submitted.push(false);
-            }
-
           }
+          this.completed=this.submitted.length;
+        })
 
-        })*/
+        console.log(this.submitted);
+        console.log(this.completed);
+
     }
   }
