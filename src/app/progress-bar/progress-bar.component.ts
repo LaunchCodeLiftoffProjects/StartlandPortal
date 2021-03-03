@@ -15,6 +15,7 @@ export class ProgressBarComponent implements OnInit {
 
   modules = [1,2,3,4];
   submitted = [];
+  completed = this.submitted.length;
 
   constructor(
     private token: TokenStorageService,
@@ -42,12 +43,10 @@ export class ProgressBarComponent implements OnInit {
 
             }
 
-            if (this.submitted.length === this.modules[i] -1) {
-              this.submitted.push(false);
-            }
-
           }
 
         })
+
+
     }
   }
