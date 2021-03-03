@@ -16,7 +16,6 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 import { UserProfileComponent} from './user-profile/user-profile.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { ModulesComponent } from './modules/modules.component';
 import { Module1Component } from './module1/module1.component';
 import { Module2Component } from './module2/module2.component';
 import { Module3Component } from './module3/module3.component';
@@ -28,7 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_helpers/auth.guard'
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_services/user.service';
-
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { AssignmentCommentsComponent } from './assignment-comments/assignment-comments.component';
 import { SubmitAssignmentComponent } from './submit-assignment/submit-assignment.component'
 
@@ -42,7 +41,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     UserProfileComponent,
     LogInComponent,
     UserRegistrationComponent,
-    ModulesComponent,
+    ProgressBarComponent,
     Module1Component,
     Module2Component,
     Module3Component,
@@ -53,7 +52,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     AssignmentCommentsComponent,
     SubmitAssignmentComponent,
     NavbarComponent
-
   ],
   imports: [
     BrowserModule,
