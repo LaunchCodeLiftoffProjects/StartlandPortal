@@ -32,6 +32,7 @@ import { AssignmentCommentsComponent } from './assignment-comments/assignment-co
 import { SubmitAssignmentComponent } from './submit-assignment/submit-assignment.component'
 
 import { NavbarComponent } from './navbar/navbar.component';
+import { Wildcard404Component } from './wildcard404/wildcard404.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     HomeComponent,
     AssignmentCommentsComponent,
     SubmitAssignmentComponent,
-    NavbarComponent
+    NavbarComponent,
+    Wildcard404Component
+
   ],
   imports: [
     BrowserModule,

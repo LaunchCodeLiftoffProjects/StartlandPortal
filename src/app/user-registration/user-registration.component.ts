@@ -28,6 +28,9 @@ export class UserRegistrationComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       username: ['', Validators.required],
+      school: ['', Validators.required],
+      district: ['', Validators.required],
+      position: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
       });
   }

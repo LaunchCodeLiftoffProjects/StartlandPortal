@@ -34,21 +34,19 @@
                     </thead>
 
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
-                        <div *ngIf="assignment.moduleNum === 1" class="row forumPad">
-                            <td>
+                            <td *ngIf="assignment.moduleNum === 1" >
                                 <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
                             </td>
-                            <div *ngFor ="let user of users">
-                                <div *ngIf="user.id === assignment.userId">
-                                    <td>
-                                        <a href="#">{{user.username}}</a>
+                                    <td *ngIf="assignment.moduleNum === 1" >
+                                        <div *ngFor ="let user of users">
+                                          <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                        </div>
                                     </td>
-                                </div>
-                            </div>
-                            <td class="pullRight">
+
+                            <td *ngIf="assignment.moduleNum === 1" class="pullRight">
                                 <p>{{commentCount(assignment.id)}}</p>
                             </td>
-                        </div>
+
                     </tr>
 
                 </table>
@@ -82,22 +80,21 @@
                     </thead>
 
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
-                        <div *ngIf="assignment.moduleNum === 2" class="row forumPad">
-                            <td>
-                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
-                            </td>
-                            <div *ngFor ="let user of users">
-                                <div *ngIf="user.id === assignment.userId">
-                                    <td>
-                                        <a href="#">{{user.username}}</a>
-                                    </td>
-                                </div>
-                            </div>
-                            <td class="pullRight">
-                                <p>{{commentCount(assignment.id)}}</p>
-                            </td>
-                        </div>
-                    </tr>
+                      <td *ngIf="assignment.moduleNum === 2" >
+                          <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
+                      </td>
+                              <td *ngIf="assignment.moduleNum === 2" >
+                                  <div *ngFor ="let user of users">
+                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                  </div>
+                              </td>
+
+                      <td *ngIf="assignment.moduleNum === 2" class="pullRight">
+                          <p>{{commentCount(assignment.id)}}</p>
+                      </td>
+
+              </tr>
+
 
                 </table>
             </div>
@@ -130,22 +127,21 @@
                     </thead>
 
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
-                        <div *ngIf="assignment.moduleNum === 3" class="row forumPad">
-                            <td>
-                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
-                            </td>
-                            <div *ngFor ="let user of users">
-                                <div *ngIf="user.id === assignment.userId">
-                                    <td>
-                                        <a href="#">{{user.username}}</a>
-                                    </td>
-                                </div>
-                            </div>
-                            <td class="pullRight">
-                                <p>{{commentCount(assignment.id)}}</p>
-                            </td>
-                        </div>
-                    </tr>
+
+                      <td *ngIf="assignment.moduleNum === 3" >
+                          <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
+                      </td>
+                              <td *ngIf="assignment.moduleNum === 3" >
+                                  <div *ngFor ="let user of users">
+                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                  </div>
+                              </td>
+
+                      <td *ngIf="assignment.moduleNum === 3" class="pullRight">
+                          <p>{{commentCount(assignment.id)}}</p>
+                      </td>
+
+              </tr>
 
                 </table>
             </div>
@@ -178,22 +174,21 @@
                     </thead>
 
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
-                        <div *ngIf="assignment.moduleNum === 4" class="row forumPad">
-                            <td>
-                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
-                            </td>
-                            <div *ngFor ="let user of users">
-                                <div *ngIf="user.id === assignment.userId">
-                                    <td>
-                                        <a href="#">{{user.username}}</a>
-                                    </td>
-                                </div>
-                            </div>
-                            <td class="pullRight">
-                                <p>{{commentCount(assignment.id)}}</p>
-                            </td>
-                        </div>
-                    </tr>
+                      <td *ngIf="assignment.moduleNum === 4" >
+                          <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
+                      </td>
+                              <td *ngIf="assignment.moduleNum === 4" >
+                                  <div *ngFor ="let user of users">
+                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                  </div>
+                              </td>
+
+                      <td *ngIf="assignment.moduleNum === 4" class="pullRight">
+                          <p>{{commentCount(assignment.id)}}</p>
+                      </td>
+
+              </tr>
+
 
                 </table>
             </div>
@@ -226,27 +221,25 @@
                     </thead>
 
                     <tr class="forumModule" *ngFor ="let assignment of assignments">
-                        <div *ngIf="assignment.moduleNum === 5" class="row forumPad">
-                            <td>
-                                <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
-                            </td>
-                            <div *ngFor ="let user of users">
-                                <div *ngIf="user.id === assignment.userId">
-                                    <td>
-                                        <a href="#">{{user.username}}</a>
-                                    </td>
-                                </div>
-                            </div>
-                            <td class="pullRight">
-                                <p>{{commentCount(assignment.id)}}</p>
-                            </td>
-                        </div>
-                    </tr>
+
+                      <td *ngIf="assignment.moduleNum === 5" >
+                          <a [routerLink]="['/assignment-comments', assignment.id]">{{assignment.name}}</a>
+                      </td>
+                              <td *ngIf="assignment.moduleNum === 5" >
+                                  <div *ngFor ="let user of users">
+                                    <a *ngIf="user.id === assignment.userId" href="user-profile">{{user.username}}</a>
+                                  </div>
+                              </td>
+
+                      <td *ngIf="assignment.moduleNum === 5" class="pullRight">
+                          <p>{{commentCount(assignment.id)}}</p>
+                      </td>
+
+              </tr>
 
                 </table>
             </div>
 
         </div>
-
 
 

@@ -21,11 +21,12 @@
             </div>
             <div class="form-group">
                 <button [disabled]="loading" name="button" type="submit" class="submit-button">LOGIN</button>
+                <a href="/user-registration"class="register">Register</a>
             </div>
             <div class="failedLogin" *ngIf="isLoginFailed">
                 Login failed: {{ errorMessage }}
             </div>
-            <a href="/user-registration"class="register">Register</a>
+            
         </form>
     </div>
 </div>

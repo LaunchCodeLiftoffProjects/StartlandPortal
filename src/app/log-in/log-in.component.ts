@@ -48,13 +48,10 @@ export class LogInComponent implements OnInit {
 
   onFormSubmit(){
     this.submitted = true;
-    // return for here if form is invalid
-    if (this.loginForm.invalid) {
-      this.isLoggedIn = false;
-      return;
-    }
-    this.loading = true;
-    this.authService.login(this.loginForm.value).subscribe(
+    
+    if (!this.loginForm.invalid) {
+      this.loading = true;
+      this.authService.login(this.loginForm.value).subscribe(
         data => {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
@@ -74,5 +71,12 @@ export class LogInComponent implements OnInit {
           this.loading = false;
         }
       );
+    } else {
+      // return for here if form is invalid
+      this.isLoggedIn = false;
+      return;
     }
+  }
+    
+   
 }

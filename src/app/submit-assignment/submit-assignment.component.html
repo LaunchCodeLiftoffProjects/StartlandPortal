@@ -11,6 +11,9 @@
             </div>
 
             <button>Submit Assignment</button>
+
+            <br *ngIf="isValid === false && updateMode === false">
+            <span *ngIf="isValid === false && updateMode === false">Please submit a valid link</span>
         
         </form>
             
@@ -28,6 +31,7 @@
                 <label>Revised assignment: </label><br>
                 <input type="text" #newAssignment size=40 maxlength=150/><br>
                 <button (click)='submitNewAssignment(newAssignment.value)'>Submit</button>
+                <br *ngIf="isValid === false"><span *ngIf="isValid === false" >Please submit a valid link</span>
             </div>
 
             <div>
