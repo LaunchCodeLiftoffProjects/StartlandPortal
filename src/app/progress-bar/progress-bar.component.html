@@ -1,0 +1,31 @@
+<div class="progress" *ngIf="completed===4">
+  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+    100% Complete
+  </div>
+</div>
+
+<div class="progress" *ngIf="completed===3">
+  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+    75% Complete
+  </div>
+</div>
+
+<div class="progress" *ngIf="completed===2" >
+  <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
+  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+    50% Complete
+  </div>
+</div>
+
+<div class="progress" *ngIf="completed===1">
+  <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
+    25% Complete
+  </div>
+</div>
+
+<div *ngIf="completed===0">
+  <p>No assignments have been submitted.</p>
+</div>

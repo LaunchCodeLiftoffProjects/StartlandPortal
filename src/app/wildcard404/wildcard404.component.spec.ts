@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModulesComponent } from './modules.component';
+import { Wildcard404Component } from './wildcard404.component';
 
-describe('ModulesComponent', () => {
-  let component: ModulesComponent;
-  let fixture: ComponentFixture<ModulesComponent>;
+describe('Wildcard404Component', () => {
+  let component: Wildcard404Component;
+  let fixture: ComponentFixture<Wildcard404Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModulesComponent ]
+      declarations: [ Wildcard404Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModulesComponent);
+    fixture = TestBed.createComponent(Wildcard404Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

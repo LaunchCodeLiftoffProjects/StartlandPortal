@@ -11,7 +11,10 @@
             </div>
 
             <button class="btn btn-primary themeButton">Submit Assignment</button>
-        
+
+            <br *ngIf="isValid === false && updateMode === false">
+            <span *ngIf="isValid === false && updateMode === false">Please submit a valid link</span>
+
         </form>
             
         <div *ngIf="submitted === true">
@@ -27,7 +30,11 @@
             <div *ngIf="updateMode === true">
                 <label>Revised assignment: </label><br>
                 <input type="text" #newAssignment size=40 maxlength=150/><br>
+
                 <button class="btn btn-primary themeButton" (click)='submitNewAssignment(newAssignment.value)'>Submit</button>
+
+                <br *ngIf="isValid === false"><span *ngIf="isValid === false" >Please submit a valid link</span>
+
             </div>
 
             <div>

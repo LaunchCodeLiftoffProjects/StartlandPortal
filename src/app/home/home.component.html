@@ -1,8 +1,23 @@
+<div *ngIf="currentUser; else loggedOut">
+  <div class="welcome-message" >
+    <h3>Welcome, {{currentUser.firstName}}!</h3>
+  </div>
 
-<div class="container" *ngIf="currentUser; else loggedOut">
+  <div class="home-content" >
+    <div class="announcements">
+      <app-announcements></app-announcements>
+    </div>
+    <hr>
+    <div>
+      <app-course-summary></app-course-summary>
+    </div>
+    <hr>
+    <div class="progress-bar-element">
+      <app-progress-bar></app-progress-bar>
+    </div>
+
+  </div>
   
-  <app-announcements></app-announcements>
-  <app-course-summary></app-course-summary>
 </div>
 
 <ng-template #loggedOut>
