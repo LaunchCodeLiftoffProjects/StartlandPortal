@@ -10,32 +10,35 @@
                 <input type="text" formControlName="link" size=40 maxlength=150> 
             </div>
 
-            <button>Submit Assignment</button>
+            <button class="btn btn-primary themeButton">Submit Assignment</button>
 
             <br *ngIf="isValid === false && updateMode === false">
             <span *ngIf="isValid === false && updateMode === false">Please submit a valid link</span>
-        
+
         </form>
             
         <div *ngIf="submitted === true">
             
             <p>Assignment has been submitted!</p>
                 
-            <button (click)='updateAssignment()'>Update Assignment</button>
+            <button class="btn btn-primary themeButton" (click)='updateAssignment()'>Update Assignment</button>
                 
-            <button (click)='deleteAssignment()'>Delete Assignment</button>
+            <button class="btn btn-primary themeButton" (click)='deleteAssignment()'>Delete Assignment</button>
 
             <p class='updateMessage'>{{updateMessage}}</p>
                 
             <div *ngIf="updateMode === true">
                 <label>Revised assignment: </label><br>
                 <input type="text" #newAssignment size=40 maxlength=150/><br>
-                <button (click)='submitNewAssignment(newAssignment.value)'>Submit</button>
+
+                <button class="btn btn-primary themeButton" (click)='submitNewAssignment(newAssignment.value)'>Submit</button>
+
                 <br *ngIf="isValid === false"><span *ngIf="isValid === false" >Please submit a valid link</span>
+
             </div>
 
             <div>
-                <button [routerLink]="['/forum']">View Forum</button>
+                <button class="btn btn-primary themeButton">Return to Module</button><button class="btn btn-primary themeButton" [routerLink]="['/forum']">View Forum</button>
             </div>
         
         </div>
