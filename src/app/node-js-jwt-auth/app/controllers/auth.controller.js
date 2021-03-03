@@ -15,6 +15,9 @@ exports.signup = (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     username: req.body.username,
+    school: req.body.school,
+    district: req.body.district,
+    position: req.body.position,
     password: bcrypt.hashSync(req.body.password, 8)
   })
     .then(user => {
@@ -80,6 +83,9 @@ exports.signin = (req, res) => {
           firstName: user.firstName,
           lastName: user.lastName,
           username: user.username,
+          school: user.school,
+          district: user.district,
+          position: user.position,
           roles: authorities,
           accessToken: token
         });

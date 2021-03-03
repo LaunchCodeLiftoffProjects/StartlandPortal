@@ -37,7 +37,6 @@ export class AssignmentCommentsComponent implements OnInit {
 
     this.currentUser = this.token.getUser();
 
-    // I re-wrote the code here based on another version I found.
     this.router.paramMap.subscribe( params => {
       this.assignmentService.getSelectedAssignment(params.get('id'))
         .subscribe(
@@ -52,22 +51,6 @@ export class AssignmentCommentsComponent implements OnInit {
     })
 
     this.router.paramMap.subscribe( params => {this.assignmentId = params.get('id')});
-
-    // ORIGINAL VERSION. HAVEN'T TESTED - feel free to try it with this one instead!
-    // this.assignmentId = Number(this.router.snapshot.paramMap.get("id?"));
-
-    // console.log(typeof(this.assignmentId));
-
-    // this.assignmentService.getSelectedAssignment(this.assignmentId)
-    // .subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.assignment = data;
-    //   },
-    //   err => {
-    //     this.assignment = JSON.parse(err.error).message;
-    //   }
-    // );
 
     this.commentsForm = this.formBuilder.group({
       assignmentId: this.assignmentId,
@@ -144,10 +127,5 @@ export class AssignmentCommentsComponent implements OnInit {
           console.log(error);
         });
       }
-
-      // reloadPage(message: string) {
-      //   window.location.reload();
-      //   this.updateMessage = message;
-      // }
 
 }
