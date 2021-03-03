@@ -72,6 +72,7 @@ export class AssignmentCommentsComponent implements OnInit {
     .subscribe(
       data => {
         this.users = data;
+        console.log(this.users);
       },
       err => {
         this.users = JSON.parse(err.error).message;
